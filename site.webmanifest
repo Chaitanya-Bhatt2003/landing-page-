@@ -1,0 +1,17 @@
+{
+  "name": "Joey AI — Smart care for happy paws",
+  "short_name": "Joey AI",
+  "description": "An AI veterinary companion for dog owners.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F7F1E6",
+  "theme_color": "#F7F1E6",
+  "icons": [
+    {
+      "src": "/assets/joey-mark.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

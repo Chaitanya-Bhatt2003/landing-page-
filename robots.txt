@@ -1,0 +1,5 @@
+# Joey AI — marketing site
+User-agent: *
+Allow: /
+
+Sitemap: https://joey.ai/sitemap.xml

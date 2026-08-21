@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#F7F1E6" />
+
+  <title>Joey AI — Smart care for happy paws</title>
+  <meta name="description" content="Joey AI is an AI-powered personal veterinary platform for dog owners. AI vet chat, photo scans, daily health tracking, and a free toxic-food checker. Free to start, no card required." />
+  <link rel="canonical" href="https://joey.ai/" />
+
+  <!-- Open Graph / Twitter: without these, every share renders as a bare link. -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Joey AI" />
+  <meta property="og:url" content="https://joey.ai/" />
+  <meta property="og:title" content="Joey AI — Smart care for happy paws" />
+  <meta property="og:description" content="An AI veterinary companion for dog owners. Triage in plain language, photo scans, daily health tracking, and a free toxic-food checker." />
+  <meta property="og:image" content="https://joey.ai/assets/og-cover-1200x630.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="A dog resting beside the Joey AI app" />
+  <meta property="og:locale" content="en_IN" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Joey AI — Smart care for happy paws" />
+  <meta name="twitter:description" content="An AI veterinary companion for dog owners. Triage in plain language, photo scans, and a free toxic-food checker." />
+  <meta name="twitter:image" content="https://joey.ai/assets/og-cover-1200x630.jpg" />
+
+  <link rel="icon" href="assets/joey-mark.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="assets/joey-mark.svg" />
+  <link rel="manifest" href="site.webmanifest" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Same three families the product loads, so type never shifts on crossover. -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fredoka:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
+
+  <link rel="preload" as="image" href="assets/hero-1000.jpg" fetchpriority="high" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://joey.ai/#organization",
+        "name": "Joey AI",
+        "url": "https://joey.ai/",
+        "logo": "https://joey.ai/assets/joey-logo.svg",
+        "description": "AI-powered personal veterinary platform for dog owners.",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer support",
+          "email": "support@joey.ai",
+          "availableLanguage": ["en"]
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://joey.ai/#website",
+        "url": "https://joey.ai/",
+        "name": "Joey AI",
+        "publisher": { "@id": "https://joey.ai/#organization" },
+        "inLanguage": "en"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Joey AI",
+        "applicationCategory": "HealthApplication",
+        "applicationSubCategory": "Veterinary",
+        "operatingSystem": "Web",
+        "url": "https://joey.ai/",
+        "description": "An AI veterinary companion for dog owners: AI vet chat, photo scans for skin, eye, ear, wound, dental and stool, daily health tracking, diet planning, vaccination and medication records.",
+        "publisher": { "@id": "https://joey.ai/#organization" },
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Free",
+            "price": "0",
+            "priceCurrency": "INR",
+            "description": "1 pet, 1 AI chat per day, 2 image scans per week, Daily Wag, vaccination reminders and the toxic-food checker."
+          },
+          {
+            "@type": "Offer",
+            "name": "Premium — monthly",
+            "price": "199",
+            "priceCurrency": "INR",
+            "description": "Up to 3 pets, unlimited AI chats and image scans, AI meal plans, drug interaction checker and PDF reports. Billed monthly after a 7-day free trial."
+          },
+          {
+            "@type": "Offer",
+            "name": "Premium — annual",
+            "price": "1799",
+            "priceCurrency": "INR",
+            "description": "All Premium features billed yearly, saving 25% against monthly. Includes a 7-day free trial."
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is Joey AI?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Joey AI is an AI-powered personal veterinary platform for dog owners. You get an AI vet chat, photo scans, daily health tracking, diet tools, vaccination and medication reminders, and medical records — organised around your dog rather than a generic pet article."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Joey AI replace my veterinarian?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Joey AI is not a licensed veterinarian and does not diagnose, prescribe, or treat. It helps you triage, prepare for appointments, and keep a history. When something needs a real examination, Joey says so in plain language. Always consult a qualified vet for medical decisions."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is Joey AI only for dogs?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Joey is dog-focused on purpose. Other species get a clear limitation rather than invented advice, because breed, weight and dosage context is what makes the guidance useful."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What can I scan with the camera?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Six scan types: skin and coat, eyes, ears, wounds, dental, and stool — plus meal photos for nutrition. Joey reads the image alongside your dog's file. Free accounts include 2 scans a week; Premium is unlimited."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is Joey AI free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes to start, with no card required. Free includes 1 pet, 1 AI chat per day, 2 image scans per week, Daily Wag tracking, vaccination reminders, and the toxic-food checker. Premium is ₹199 per month or ₹1,799 per year and starts with a 7-day free trial."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is this different from searching online?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Search knows dogs in general. Joey knows yours — breed, weight, medications, last scan, last meal. That context is why a Labrador that vomited twice gets a different plan than a puppy that swallowed a grape. You still confirm anything serious with your vet."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens to my dog's health data?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Your records stay in your account. Joey does not sell personal data, and share links you create for a vet can be revoked at any time. Full detail is in the Privacy Policy."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I cancel Premium?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Any time, from Settings → Subscription. You keep Premium until the end of the period you have paid for, then move back to Free. Nothing is deleted — your records stay, you simply return to the Free limits."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="announce" id="announce" data-announce>
+    <p>
+      Free forever plan — 1 AI chat a day and the toxic-food checker.
+      <a href="https://joey.ai/signup" data-cta="signup" data-analytics="announce">Start free</a>
+    </p>
+    <button class="announce-close" type="button" data-announce-close aria-label="Dismiss announcement">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12" /></svg>
+    </button>
+  </div>
+
+  <header class="site-nav" data-nav>
+    <div class="wrap nav-inner">
+      <a class="logo" href="#top" aria-label="Joey AI — home">
+        <img src="assets/joey-logo.svg" alt="Joey AI" width="8220" height="2863" />
+      </a>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#features">Features</a>
+        <a href="#check">Food checker</a>
+        <a href="#everything">What's inside</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <div class="nav-cta">
+        <a class="btn btn-secondary btn-sm" href="https://joey.ai/login" data-cta="login" data-analytics="nav">Log in</a>
+        <a class="btn btn-primary btn-sm" href="https://joey.ai/signup" data-cta="signup" data-analytics="nav">Start free</a>
+      </div>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu" data-menu-toggle>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+      </button>
+    </div>
+
+    <nav class="mobile-nav" id="mobile-nav" hidden data-mobile-nav aria-label="Primary (mobile)">
+      <a href="#features">Features</a>
+      <a href="#check">Food checker</a>
+      <a href="#everything">What's inside</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a href="https://joey.ai/login" data-cta="login" data-analytics="mobile-nav">Log in</a>
+      <a class="btn btn-primary" href="https://joey.ai/signup" data-cta="signup" data-analytics="mobile-nav">Start free</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- ============================ HERO ============================ -->
+    <section class="hero" id="top">
+      <div class="hero-video-wrap" aria-hidden="true">
+        <video
+          class="hero-video"
+          data-hero-video
+          muted
+          loop
+          playsinline
+          preload="none"
+          poster="assets/hero-1000.jpg"
+        >
+          <source src="assets/hero-video.mp4" type="video/mp4" />
+        </video>
+        <div class="hero-scrim"></div>
+      </div>
+      <span class="sr-only">Background video: a dog walking through a sunlit garden with its owner</span>
+
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">Smart care for happy paws</p>
+          <h1>When they can't tell you <span class="marker">what's wrong</span>.</h1>
+          <p class="hero-lede">
+            Joey AI is a personal veterinary companion for dog owners. It reads the breed, the history, and the photo
+            you just took — then tells you how urgent this is, and what to do before morning.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary btn-lg" href="https://joey.ai/signup" data-cta="signup" data-analytics="hero">Start free</a>
+            <a class="text-link" href="#check">
+              Try the food checker
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+            </a>
+          </div>
+
+          <ul class="hero-assurance" role="list">
+            <li>
+              <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5" /></svg>
+                Free to start
+              </span>
+            </li>
+            <li>
+              <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5" /></svg>
+                No card required
+              </span>
+            </li>
+            <li>
+              <span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5" /></svg>
+                Built for dogs only
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ TRUST STRIP ============================ -->
+    <section class="trust" aria-label="What Joey AI includes">
+      <div class="wrap trust-row">
+        <div>
+          <strong>1 a day</strong>
+          <span>Free AI vet chats, every day, forever</span>
+        </div>
+        <div>
+          <strong>6 scan types</strong>
+          <span>Skin, eye, ear, wound, dental, stool</span>
+        </div>
+        <div>
+          <strong>Daily Wag</strong>
+          <span>A weekly health score from one-minute logs</span>
+        </div>
+        <div>
+          <strong>Always free</strong>
+          <span>Toxic-food checker, on every plan</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ DEMO ============================ -->
+    <section class="section" id="demo" aria-labelledby="demo-title">
+      <div class="wrap feature-inner">
+        <div class="feature-text">
+          <p class="eyebrow">Built for the 2 a.m. question</p>
+          <h2 id="demo-title">Not a search result. A reply that knows your dog.</h2>
+          <p>
+            Joey AI Vet reads like a calm clinician who already has the file open — breed, age, weight, medications,
+            last meal, last scan. It asks the one question that changes the plan, then tells you whether this is home
+            rest, a same-day clinic, or the emergency hospital.
+          </p>
+          <ul class="checklist">
+            <li>Four triage levels in plain language: <b>emergency</b>, <b>urgent</b>, <b>monitor</b>, <b>routine</b></li>
+            <li>Answers built on your dog's record, not a generic "dogs sometimes vomit" page</li>
+            <li>Says clearly when something needs a real vet — and never pretends to be one</li>
+          </ul>
+          <a class="text-link" href="https://joey.ai/signup" data-cta="signup" data-analytics="demo">
+            Open AI Vet Chat
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+          </a>
+        </div>
+
+        <div class="feature-visual">
+          <div class="device device-tilt">
+            <div class="device-bezel">
+              <div class="device-island"></div>
+              <div class="device-status" aria-hidden="true">
+                <span>9:41</span>
+                <svg viewBox="0 0 18 12" fill="currentColor"><rect x="0" y="3" width="3" height="6" rx="0.5" /><rect x="4.5" y="1.5" width="3" height="7.5" rx="0.5" /><rect x="9" y="0" width="3" height="9" rx="0.5" /><path d="M14 3.2h2.2v5.6H14A1.2 1.2 0 0 1 12.8 7.6V4.4A1.2 1.2 0 0 1 14 3.2z" /></svg>
+              </div>
+
+              <div class="device-screen device-screen-shot">
+                  <picture>
+                    <source type="image/webp" srcset="assets/app-chat-560.webp" />
+                    <img
+                      class="device-shot"
+                      src="assets/app-chat-560.jpg"
+                      width="560"
+                      height="1063"
+                      loading="lazy"
+                      decoding="async"
+                      alt="The Joey AI Vet chat in the app: an owner asks whether Bruno, a Labrador who skipped dinner and vomited twice, can wait until morning, and Joey replies asking when the vomiting started and what it looked like."
+                    />
+                  </picture>
+                </div>
+
+              <div class="device-home" aria-hidden="true"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ FEATURES ============================ -->
+    <section class="section section-tint" id="features" aria-labelledby="features-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">What Joey does</p>
+          <h2 id="features-title">Four tools for the parts of care that happen between visits.</h2>
+          <p class="section-lede">
+            Nothing here diagnoses your dog. All of it makes the next conversation with your vet sharper.
+          </p>
+        </div>
+      </div>
+
+      <!-- Feature 1 — 24/7 chat -->
+      <article class="feature-row">
+        <div class="wrap feature-inner">
+          <div class="feature-text">
+            <p class="eyebrow">Day or night</p>
+            <h2>Help at 2 a.m., when the clinic line just rings.</h2>
+            <p>
+              Worried owners don't need another forum thread. Joey answers in seconds with what to watch, what to do
+              in the kitchen, and when to get in the car. Follow-ups remember last week's stomach bug, so you never
+              start from zero.
+            </p>
+          </div>
+
+          <div class="feature-visual">
+            <div class="device">
+              <div class="device-bezel">
+                <div class="device-island"></div>
+                <div class="device-status" aria-hidden="true"><span>9:41</span></div>
+                <div class="device-screen device-screen-shot">
+                  <picture>
+                    <source type="image/webp" srcset="assets/app-chat-plan-560.webp" />
+                    <img
+                      class="device-shot"
+                      src="assets/app-chat-plan-560.jpg"
+                      width="560"
+                      height="1063"
+                      loading="lazy"
+                      decoding="async"
+                      alt="The same Joey AI Vet conversation showing the overnight plan: warning signs to watch for, including pale gums and severe lethargy, followed by the veterinary disclaimer."
+                    />
+                  </picture>
+                </div>
+                <div class="device-home" aria-hidden="true"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Feature 2 — Image scanner -->
+      <article class="feature-row feature-row-alt">
+        <div class="wrap feature-inner">
+          <div class="feature-text">
+            <p class="eyebrow">Point the camera</p>
+            <h2>Scan a rash, an ear, an eye. Know if it can wait.</h2>
+            <p>
+              Upload a photo and Joey reads colour, location, and pattern against your dog's breed and medications —
+              then returns a triage level, likely causes, and whether this can wait for your regular vet. Six scan
+              types: skin and coat, eyes, ears, wounds, dental, and stool.
+            </p>
+          </div>
+
+          <div class="feature-visual">
+            <div class="device">
+              <div class="device-bezel">
+                <div class="device-island"></div>
+                <div class="device-status" aria-hidden="true"><span>9:41</span></div>
+                <div class="device-screen device-screen-shot">
+                  <picture>
+                    <source type="image/webp" srcset="assets/app-scanner-560.webp" />
+                    <img
+                      class="device-shot"
+                      src="assets/app-scanner-560.jpg"
+                      width="560"
+                      height="1063"
+                      loading="lazy"
+                      decoding="async"
+                      alt="The Image Scanner in the app, ready to take or upload a photo, with tips for a useful scan: good lighting, a close-up filling the frame, and a steady camera."
+                    />
+                  </picture>
+                </div>
+                <div class="device-home" aria-hidden="true"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Feature 3 — Daily Wag -->
+      <article class="feature-row">
+        <div class="wrap feature-inner">
+          <div class="feature-text">
+            <p class="eyebrow">Daily Wag</p>
+            <h2>A health picture no single visit can hold.</h2>
+            <p>
+              Log appetite, energy, stool, weight, and walks in under a minute. Joey turns the week into a score and
+              flags the drift you'd otherwise miss — the 5% weight drop, the quiet Tuesday, the itch that stopped
+              being "just seasonal".
+            </p>
+          </div>
+
+          <div class="feature-visual">
+            <div class="metrics" role="group" aria-label="Example Daily Wag summary">
+              <div class="metric-card metric-hero">
+                <span class="metric-label">Daily Wag</span>
+                <span class="metric-value">84</span>
+                <span class="metric-hint">Steady week · Labrador, 28.4 kg</span>
+                <svg class="ring" viewBox="0 0 120 120" aria-hidden="true">
+                  <circle cx="60" cy="60" r="50" />
+                  <circle cx="60" cy="60" r="50" class="ring-fill" />
+                </svg>
+              </div>
+              <div class="metric-card">
+                <span class="metric-label">Appetite</span>
+                <span class="metric-value metric-sm">Normal</span>
+                <span class="metric-hint">Finished both meals</span>
+              </div>
+              <div class="metric-card">
+                <span class="metric-label">Walks</span>
+                <span class="metric-value metric-sm">6.2 km</span>
+                <span class="metric-hint">Above the 7-day average</span>
+              </div>
+              <div class="metric-card">
+                <span class="metric-label">Energy</span>
+                <span class="metric-value metric-sm">7 / 10</span>
+                <span class="metric-hint">Playful after dinner</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Feature 4 — Food + diet, with the live checker -->
+      <article class="feature-row feature-row-alt" id="check">
+        <div class="wrap feature-inner">
+          <div class="feature-text">
+            <p class="eyebrow">Before it hits the bowl</p>
+            <h2>Check a snack. Scan a meal. Feed with a plan.</h2>
+            <p>
+              Type a food and Joey tells you the risk in the moment, not after a scroll. Inside the app it pairs with
+              meal logs, calorie tracking, and 7-day plans that respect your dog's allergies and what's already in
+              the cupboard.
+            </p>
+
+            <form class="checker" data-checker novalidate>
+              <label for="food-q">Can my dog eat this?</label>
+              <div class="checker-row">
+                <input
+                  id="food-q"
+                  name="food"
+                  type="search"
+                  placeholder="chocolate, grapes, paneer…"
+                  autocomplete="off"
+                  autocapitalize="none"
+                  spellcheck="false"
+                  enterkeyhint="search"
+                />
+                <button type="submit" class="btn btn-primary">Check</button>
+              </div>
+              <p class="checker-hint">
+                Try
+                <button type="button" data-food-example="chocolate">chocolate</button>·<button type="button" data-food-example="grapes">grapes</button>·<button type="button" data-food-example="xylitol">xylitol</button>·<button type="button" data-food-example="carrot">carrot</button>
+              </p>
+              <div class="checker-out" data-checker-out role="status" aria-live="polite"></div>
+            </form>
+          </div>
+
+          <div class="feature-visual">
+            <div class="device">
+              <div class="device-bezel">
+                <div class="device-island"></div>
+                <div class="device-status" aria-hidden="true"><span>9:41</span></div>
+                <div class="device-screen device-screen-shot">
+                  <picture>
+                    <source type="image/webp" srcset="assets/app-diet-560.webp" />
+                    <img
+                      class="device-shot"
+                      src="assets/app-diet-560.jpg"
+                      width="560"
+                      height="1063"
+                      loading="lazy"
+                      decoding="async"
+                      alt="The Diet & Nutrition screen in the app for Bruno, with recipe, meal-logging and verified-food sections plus share and PDF export."
+                    />
+                  </picture>
+                </div>
+                <div class="device-home" aria-hidden="true"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ============================ EVERYTHING INSIDE ============================ -->
+    <section class="section" id="everything" aria-labelledby="everything-title">
+      <div class="wrap">
+        <div class="section-head is-centred">
+          <p class="eyebrow">Explore Joey</p>
+          <h2 id="everything-title">Everything between visits, in one home.</h2>
+          <p class="section-lede">
+            Chats, scans, vaccines, medications, meals, and records live in a single file — so the next appointment
+            starts with a history instead of a guess.
+          </p>
+        </div>
+
+        <div class="explore-grid">
+          <div class="explore-card">
+            <span class="explore-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9a2 2 0 0 1 3.4 0l7.4 13a2 2 0 0 1-1.7 3H4.6a2 2 0 0 1-1.7-3z" /><path d="M12 9v4M12 17h.01" /></svg>
+            </span>
+            <h3>Breed alerts</h3>
+            <p>Breed-specific risks and what to watch this season — not a generic "all dogs" article.</p>
+          </div>
+
+          <div class="explore-card">
+            <span class="explore-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6M12 11v6M9 14h6" /></svg>
+            </span>
+            <h3>Records &amp; vaccines</h3>
+            <p>Vaccinations, labs, and medications in one file, with shareable summaries for the clinic.</p>
+          </div>
+
+          <div class="explore-card">
+            <span class="explore-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7" /><path d="M20 20l-3.6-3.6" /></svg>
+            </span>
+            <h3>Food &amp; diet tools</h3>
+            <p>Toxic-food checker, calorie tracking, and meal plans that respect the allergies you already entered.</p>
+          </div>
+
+          <div class="explore-card">
+            <span class="explore-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.9 8.9 0 0 1-3.9-.9L3 21l1.9-5A8.4 8.4 0 0 1 12 3.1a8.4 8.4 0 0 1 9 8.4z" /></svg>
+            </span>
+            <h3>Talk to Joey</h3>
+            <p>Live AI vet chat for the moment in front of you. Clear triage, then a plan you can follow tonight.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ PRICING ============================ -->
+    <section class="section section-tint" id="pricing" aria-labelledby="pricing-title">
+      <div class="wrap">
+        <div class="section-head is-centred">
+          <p class="eyebrow">Pricing</p>
+          <h2 id="pricing-title">Start free. Upgrade only if Joey earns it.</h2>
+          <p class="section-lede">
+            Free covers one dog and the daily basics, permanently. Premium unlocks the heavy lifting.
+          </p>
+        </div>
+
+        <div class="plan-grid">
+          <div class="plan">
+            <h3>Free</h3>
+            <div class="plan-price">₹0<span>/ forever</span></div>
+            <p class="plan-alt">For your first dog. No card required.</p>
+            <ul>
+              <li>1 pet profile</li>
+              <li>1 AI vet chat per day</li>
+              <li>2 image scans per week</li>
+              <li>Daily Wag logs and weekly health score</li>
+              <li>Vaccination reminders</li>
+              <li>Toxic-food checker</li>
+              <li>Email support</li>
+            </ul>
+            <a class="btn btn-secondary" href="https://joey.ai/signup" data-cta="signup" data-analytics="pricing-free">Start free</a>
+          </div>
+
+          <div class="plan plan-featured">
+            <span class="plan-badge">Most popular</span>
+            <h3>Premium</h3>
+            <div class="plan-price">₹199<span>/ month</span></div>
+            <p class="plan-alt">or ₹1,799 a year — <b>save 25%</b>. Starts with a 7&#8209;day free trial.</p>
+            <ul>
+              <li>Up to 3 pets</li>
+              <li>Unlimited AI vet chats</li>
+              <li>Unlimited image scans</li>
+              <li>AI meal plans and diet share links</li>
+              <li>Drug interaction checker</li>
+              <li>Medical records with data extraction</li>
+              <li>Custom PDF health reports</li>
+            </ul>
+            <a class="btn btn-primary" href="https://joey.ai/pricing" data-cta="pricing" data-analytics="pricing-premium">Go Premium</a>
+          </div>
+
+          <div class="plan">
+            <h3>One-off reports</h3>
+            <div class="plan-price">₹49<span>+ each</span></div>
+            <p class="plan-alt">No subscription needed.</p>
+            <ul>
+              <li>Monthly health digest — ₹49</li>
+              <li>Pre-vet visit summary — ₹59</li>
+              <li>Nutrition audit — ₹79</li>
+              <li>Puppy development report — ₹89</li>
+              <li>Comprehensive health report — ₹99</li>
+              <li>Breed genetic risk report — ₹149</li>
+            </ul>
+            <a class="btn btn-secondary" href="https://joey.ai/pricing" data-cta="pricing" data-analytics="pricing-reports">See reports</a>
+          </div>
+        </div>
+
+        <p class="plan-note">
+          Prices in INR, inclusive of applicable taxes. Cancel any time from Settings → Subscription — your records
+          stay either way.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================ CLOSING CTA ============================ -->
+    <section class="close-cta" aria-labelledby="close-title">
+      <div class="wrap">
+        <div class="close-inner">
+          <h2 id="close-title">They already trust you with the night. Keep the next step in your pocket.</h2>
+          <p>Works in any browser — nothing to download. Free to start, no card. Dogs only, on purpose.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ FAQ ============================ -->
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <div class="wrap faq-wrap">
+        <div class="section-head">
+          <p class="eyebrow">FAQ</p>
+          <h2 id="faq-title">Questions dog parents ask first</h2>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <h3>
+              <button type="button" id="faq-btn-1" aria-expanded="false" aria-controls="faq-1">
+                What is Joey AI?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
+              </button>
+            </h3>
+            <div class="faq-panel" id="faq-1" hidden>
+              <p>Joey AI is an AI-powered personal veterinary platform for dog owners. You get an AI vet chat, photo scans, daily health tracking, diet tools, vaccination and medication reminders, and medical records — organised around your dog rather than a generic pet article.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3>
+              <button type="button" id="faq-btn-2" aria-expanded="false" aria-controls="faq-2">
+                Does Joey AI replace my veterinarian?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
+              </button>
+            </h3>
+            <div class="faq-panel" id="faq-2" hidden>
+              <p>No. Joey AI is not a licensed veterinarian and does not diagnose, prescribe, or treat. It helps you triage, prepare for appointments, and keep a history so clinic visits are sharper. When something needs a real examination, Joey says so in plain language. See the <a href="disclaimer.html">veterinary disclaimer</a>.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3>
+              <button type="button" id="faq-btn-3" aria-expanded="false" aria-controls="faq-3">
+                Is Joey AI only for dogs?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
+              </button>
+            </h3>
+            <div class="faq-panel" id="faq-3" hidden>
+              <p>Yes. Joey is dog-focused on purpose. Other species get a clear limitation rather than invented advice — breed, weight, and dosage context is exactly what makes the guidance useful, and that context does not transfer across species. If you live with a cat, you want a tool built for cats.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3>
+              <button type="button" id="faq-btn-4" aria-expanded="false" aria-controls="faq-4">
+                What can I scan with the camera?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
+              </button>
+            </h3>
+            <div class="faq-panel" id="faq-4" hidden>
+              <p>Six scan types: skin and coat, eyes, ears, wounds, dental, and stool — plus meal photos for nutrition. Joey reads the image alongside your dog's file, so the same rash gets a different answer for a 4-year-old Labrador than for a 12-week-old puppy. Free accounts include 2 scans a week; Premium is unlimited.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3>
+              <button type="button" id="faq-btn-5" aria-expanded="false" aria-controls="faq-5">
+                Is Joey AI free?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
+              </button>
+            </h3>
+            <div class="faq-panel" id="faq-5" hidden>
+              <p>Yes to start, and no card is required. Free includes 1 pet, 1 AI chat per day, 2 image scans per week, Daily Wag tracking, vaccination reminders, and the toxic-food checker. Premium is ₹199 per month or ₹1,799 per year and begins with a 7-day free trial. Individual PDF reports start at ₹49 with no subscription at all.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3>
+              <button type="button" id="faq-btn-6" aria-expanded="false" aria-controls="faq-6">
+                How is this different from searching online?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
+              </button>
+            </h3>
+            <div class="faq-panel" id="faq-6" hidden>
+              <p>Search knows dogs in general. Joey knows yours — breed, weight, medications, last scan, last meal. That context is why a Labrador that vomited twice gets a different plan than a puppy that swallowed a grape. You still confirm anything serious with your vet.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3>
+              <button type="button" id="faq-btn-7" aria-expanded="false" aria-controls="faq-7">
+                What happens to my dog's health data?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
+              </button>
+            </h3>
+            <div class="faq-panel" id="faq-7" hidden>
+              <p>Your records stay in your account. Joey does not sell personal data, and any share link you create for a vet can be revoked at any time. You can export or delete your data from Settings. Full detail is in the <a href="privacy.html">Privacy Policy</a>.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3>
+              <button type="button" id="faq-btn-8" aria-expanded="false" aria-controls="faq-8">
+                Can I cancel Premium?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
+              </button>
+            </h3>
+            <div class="faq-panel" id="faq-8" hidden>
+              <p>Any time, from Settings → Subscription. You keep Premium until the end of the period you have already paid for, then move back to Free. Nothing is deleted — your records stay, you simply return to the Free limits.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="logo" href="#top" aria-label="Joey AI — home">
+            <img src="assets/joey-logo.svg" alt="Joey AI" width="8220" height="2863" />
+          </a>
+          <p>Smart care for happy paws. An AI veterinary companion for dog owners — guidance between visits, never a replacement for your vet.</p>
+        </div>
+
+        <div class="footer-col">
+          <h2>Product</h2>
+          <ul>
+            <li><a href="https://joey.ai/signup" data-cta="chat" data-analytics="footer">AI Vet Chat</a></li>
+            <li><a href="https://joey.ai/signup" data-cta="scanner" data-analytics="footer">Image Scanner</a></li>
+            <li><a href="https://joey.ai/signup" data-cta="fitness" data-analytics="footer">Daily Wag</a></li>
+            <li><a href="#check">Toxic-food checker</a></li>
+            <li><a href="https://joey.ai/pricing" data-cta="pricing" data-analytics="footer">Pricing</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h2>Company</h2>
+          <ul>
+            <li><a href="mailto:support@joey.ai" data-support-email>support@joey.ai</a></li>
+            <li><a href="https://joey.ai/login" data-cta="login" data-analytics="footer">Log in</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h2>Legal</h2>
+          <ul>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="disclaimer.html">Veterinary disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="footer-disclaimer">
+        <strong>Joey AI is not a licensed veterinarian.</strong> Always consult a qualified vet for medical decisions.
+        In an emergency, contact your nearest veterinary hospital immediately — do not wait for an AI response.
+      </p>
+
+      <div class="footer-bottom">
+        <p>&copy; <span data-year>2026</span> Joey AI. All rights reserved.</p>
+        <p>Made for dogs, and the people who worry about them.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="app.js" defer></script>
+</body>
+</html>
