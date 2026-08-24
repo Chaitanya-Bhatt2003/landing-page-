@@ -1,5 +1,5 @@
 {
-  "name": "Joey AI — Smart care for happy paws",
+  "name": "Joey AI \u00e2\u20ac\u201d Smart care for happy paws",
   "short_name": "Joey AI",
   "description": "An AI veterinary companion for dog owners.",
   "start_url": "/",
@@ -8,10 +8,28 @@
   "theme_color": "#F7F1E6",
   "icons": [
     {
-      "src": "/assets/joey-mark.svg",
+      "src": "/assets/joey-icon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any"
+    },
+    {
+      "src": "/assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }

@@ -53,13 +53,22 @@
   --wrap: 1120px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --t: 200ms;
-  --nav-h: 76px;
+  --nav-h: 96px;
   --announce-h: 46px;
 }
 
 @media (min-width: 1280px) {
   :root {
     --wrap: 1180px;
+  }
+}
+
+/* On very large monitors the 1180px cap leaves the page marooned in the middle
+   of the screen; a modest widening keeps the measure comfortable without
+   letting body copy run to unreadable line lengths. */
+@media (min-width: 1700px) {
+  :root {
+    --wrap: 1320px;
   }
 }
 
@@ -385,6 +394,8 @@ p {
 }
 
 .announce a {
+  display: inline-block;
+  padding: 6px 4px;
   color: #fff;
   font-weight: 700;
   text-underline-offset: 3px;
@@ -392,11 +403,11 @@ p {
 
 .announce-close {
   position: absolute;
-  right: 8px;
+  right: 4px;
   top: 50%;
   transform: translateY(-50%);
-  width: 32px;
-  height: 32px;
+  width: 44px;
+  height: 44px;
   display: grid;
   place-items: center;
   border: 0;
@@ -453,7 +464,7 @@ p {
 }
 
 .logo img {
-  height: 34px;
+  height: 60px;
   width: auto;
 }
 
@@ -1440,15 +1451,26 @@ p {
   color: var(--textmuted);
 }
 
+/* Given real padding these clear the 44px touch minimum instead of being a
+   21px-tall sliver of text. */
 .checker-hint button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
   border: 0;
   background: none;
-  padding: 0 2px;
+  padding: 4px 8px;
   font-size: inherit;
   font-weight: 600;
   color: var(--terracotta);
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+
+.checker-hint button:hover {
+  background: var(--terracotta-light);
+  border-radius: 8px;
+  text-decoration: none;
 }
 
 /* The result panel is empty until a search runs, so it must not reserve
@@ -1803,7 +1825,7 @@ p {
 }
 
 .footer-brand img {
-  height: 34px;
+  height: 54px;
   width: auto;
 }
 
@@ -1833,7 +1855,7 @@ p {
 .footer-col a {
   display: inline-flex;
   align-items: center;
-  min-height: 38px;
+  min-height: 44px;
   color: var(--ink);
   text-decoration: none;
   font-size: 0.94rem;
@@ -2003,14 +2025,19 @@ p {
     padding-left: 20px;
   }
 
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Three plans stayed side by side down to 1024px before; collapsing them there
+   wasted most of a landscape tablet. They now hold until the copy would
+   genuinely crush. */
+@media (max-width: 900px) {
   .plan-grid {
     grid-template-columns: 1fr;
     max-width: 520px;
     margin-inline: auto;
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -2061,18 +2088,23 @@ p {
     font-size: 16px;
   }
 
+  /* Keep the mark generous but clear of the menu button on narrow screens. */
+  :root {
+    --nav-h: 84px;
+  }
+
+  .logo img {
+    height: 48px;
+  }
+
   .wrap {
     width: calc(100% - 32px);
   }
 
+  /* Two columns still fit four short facts here; one column pushed the strip
+     to nearly a full screen of scrolling on its own. */
   .trust-row {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .trust-row div:nth-child(2n) {
-    border-left: none;
-    padding-left: 0;
+    gap: 18px 16px;
   }
 
   .explore-grid,
@@ -2105,6 +2137,101 @@ p {
 
   .announce {
     font-size: 0.84rem;
+  }
+}
+
+/* --- Small phones (<=430px) ------------------------------------------------
+   The hero headline's clamp floor was 2.6rem, so it stopped shrinking at
+   ~743px and stayed 42px all the way down to 320px — far too heavy on a small
+   phone. These tiers let it keep scaling. */
+@media (max-width: 430px) {
+  .hero h1 {
+    font-size: clamp(1.9rem, 8.4vw, 2.6rem);
+  }
+
+  .section h2,
+  .close-inner h2 {
+    font-size: clamp(1.55rem, 6.4vw, 1.9rem);
+  }
+
+  .hero-lede {
+    font-size: 1rem;
+  }
+
+  .hero {
+    padding: 36px 0 44px;
+  }
+
+  .plan-price {
+    font-size: 2rem;
+  }
+
+  .metric-value {
+    font-size: 2.4rem;
+  }
+}
+
+/* --- Very small phones (<=360px) ------------------------------------------- */
+@media (max-width: 360px) {
+  .wrap {
+    width: calc(100% - 24px);
+  }
+
+  /* Four stacked facts read better than two cramped columns down here. */
+  .trust-row {
+    grid-template-columns: 1fr;
+  }
+
+  .logo img {
+    height: 42px;
+  }
+
+  .btn {
+    padding: 0 18px;
+  }
+
+  .checker,
+  .metric-card,
+  .explore-card,
+  .plan {
+    padding: 16px;
+  }
+}
+
+/* --- Short viewports (landscape phones) ------------------------------------
+   A 100svh hero on a 390px-tall landscape phone leaves almost no room for the
+   copy once the fixed padding is taken out. Drop the minimum and tighten. */
+@media (max-height: 560px) and (orientation: landscape) {
+  .hero {
+    min-height: 0;
+    padding: 32px 0 40px;
+  }
+
+  .hero h1 {
+    font-size: clamp(1.8rem, 4.4vw, 2.6rem);
+  }
+
+  .announce {
+    display: none;
+  }
+
+  body {
+    --announce-h: 0px;
+  }
+}
+
+/* --- Coarse pointers -------------------------------------------------------
+   Hover lifts do nothing useful on touch and can leave a card stuck in its
+   hovered state after a tap. */
+@media (hover: none) {
+  .btn:hover,
+  .explore-card:hover {
+    transform: none;
+    box-shadow: var(--shadow-chunky);
+  }
+
+  .text-link:hover svg {
+    transform: none;
   }
 }
 
