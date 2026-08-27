@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#F7F1E6" />
+  <meta name="theme-color" content="#EEF3EC" />
 
   <title>Joey AI — Smart care for happy paws</title>
   <meta name="description" content="Joey AI is an AI-powered personal veterinary platform for dog owners. AI vet chat, photo scans, daily health tracking, and a free toxic-food checker. Free to start, no card required." />
@@ -32,10 +32,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <!-- Same three families the product loads, so type never shifts on crossover. -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fredoka:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Outfit:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
 
-  <link rel="preload" as="image" href="assets/hero-1000.jpg" fetchpriority="high" />
+  <link rel="preload" as="image" href="assets/photo-care.jpg" fetchpriority="high" />
   <link rel="stylesheet" href="styles.css" />
 
   <script type="application/ld+json">
@@ -184,7 +183,8 @@
   </div>
 
   <header class="site-nav" data-nav>
-    <div class="wrap nav-inner">
+    <div class="wrap nav-shell">
+    <div class="nav-inner">
       <a class="logo" href="#top" aria-label="Joey AI — home">
         <img src="assets/joey-logo.svg" alt="Joey AI" width="8220" height="2863" />
       </a>
@@ -216,11 +216,14 @@
       <a href="https://joey.ai/login" data-cta="login" data-analytics="mobile-nav">Log in</a>
       <a class="btn btn-primary" href="https://joey.ai/signup" data-cta="signup" data-analytics="mobile-nav">Start free</a>
     </nav>
+    </div>
   </header>
 
   <main id="main">
     <!-- ============================ HERO ============================ -->
     <section class="hero" id="top">
+      <div class="wrap hero-stage">
+        <div class="hero-frame">
       <div class="hero-video-wrap" aria-hidden="true">
         <video
           class="hero-video"
@@ -229,16 +232,18 @@
           loop
           playsinline
           preload="none"
-          poster="assets/hero-1000.jpg"
+          poster="assets/photo-care.jpg"
         >
           <source src="assets/hero-video.mp4" type="video/mp4" />
         </video>
         <div class="hero-scrim"></div>
+        <svg class="hero-paw hero-paw-a" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><ellipse cx="7.2" cy="6.8" rx="2.15" ry="2.7"/><ellipse cx="12" cy="4.4" rx="2.15" ry="2.7"/><ellipse cx="16.8" cy="6.8" rx="2.15" ry="2.7"/><ellipse cx="5.6" cy="12.1" rx="1.75" ry="2.35"/><path d="M12 9.6c-3.35 0-5.7 2.45-5.7 5.35 0 2.5 1.85 3.95 5.7 3.95s5.7-1.45 5.7-3.95c0-2.9-2.35-5.35-5.7-5.35z"/></svg>
+        <svg class="hero-paw hero-paw-b" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><ellipse cx="7.2" cy="6.8" rx="2.15" ry="2.7"/><ellipse cx="12" cy="4.4" rx="2.15" ry="2.7"/><ellipse cx="16.8" cy="6.8" rx="2.15" ry="2.7"/><ellipse cx="5.6" cy="12.1" rx="1.75" ry="2.35"/><path d="M12 9.6c-3.35 0-5.7 2.45-5.7 5.35 0 2.5 1.85 3.95 5.7 3.95s5.7-1.45 5.7-3.95c0-2.9-2.35-5.35-5.7-5.35z"/></svg>
       </div>
       <span class="sr-only">Background video: a dog walking through a sunlit garden with its owner</span>
 
-      <div class="wrap hero-inner">
-        <div class="hero-copy">
+      <div class="hero-inner">
+        <div class="hero-copy" data-reveal>
           <p class="eyebrow">Smart care for happy paws</p>
           <h1>When they can't tell you <span class="marker">what's wrong</span>.</h1>
           <p class="hero-lede">
@@ -276,34 +281,72 @@
           </ul>
         </div>
       </div>
-    </section>
-
-    <!-- ============================ TRUST STRIP ============================ -->
-    <section class="trust" aria-label="What Joey AI includes">
-      <div class="wrap trust-row">
-        <div>
-          <strong>1 a day</strong>
-          <span>Free AI vet chats, every day, forever</span>
-        </div>
-        <div>
-          <strong>6 scan types</strong>
-          <span>Skin, eye, ear, wound, dental, stool</span>
-        </div>
-        <div>
-          <strong>Daily Wag</strong>
-          <span>A weekly health score from one-minute logs</span>
-        </div>
-        <div>
-          <strong>Always free</strong>
-          <span>Toxic-food checker, on every plan</span>
         </div>
       </div>
     </section>
 
+    <!-- ============================ TRUST STRIP ============================ -->
+    <section class="trust" aria-label="What Joey AI includes">
+      <div class="wrap trust-row" data-reveal-stagger>
+        <a class="trust-card trust-card--chat trust-card--tilt-l" href="#feature-chat">
+          <div class="trust-card__media">
+            <img src="assets/trust-chat.jpg" alt="" width="640" height="480" loading="lazy" decoding="async" />
+            <span class="trust-card__chip">Chat</span>
+          </div>
+          <div class="trust-card__body">
+            <span class="trust-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.9 8.9 0 0 1-3.9-.9L3 21l1.9-5A8.4 8.4 0 0 1 12 3.1a8.4 8.4 0 0 1 9 8.4z" /></svg>
+            </span>
+            <strong>1 a day</strong>
+            <span>Free AI vet chats, every day, forever</span>
+          </div>
+        </a>
+        <a class="trust-card trust-card--scan trust-card--tilt-r" href="#feature-scan">
+          <div class="trust-card__media">
+            <img src="assets/trust-scan.jpg" alt="" width="640" height="480" loading="lazy" decoding="async" />
+            <span class="trust-card__chip">Scanner</span>
+          </div>
+          <div class="trust-card__body">
+            <span class="trust-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h3l2-3h8l2 3h3a2 2 0 0 1 2 2z" /><circle cx="12" cy="13" r="4" /></svg>
+            </span>
+            <strong>6 scan types</strong>
+            <span>Skin, eye, ear, wound, dental, stool</span>
+          </div>
+        </a>
+        <a class="trust-card trust-card--wag trust-card--tilt-l" href="#feature-wag">
+          <div class="trust-card__media">
+            <img src="assets/trust-wag.jpg" alt="" width="640" height="480" loading="lazy" decoding="async" />
+            <span class="trust-card__chip">Health</span>
+          </div>
+          <div class="trust-card__body">
+            <span class="trust-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10" /><path d="M18 20V4" /><path d="M6 20v-4" /></svg>
+            </span>
+            <strong>Daily Wag</strong>
+            <span>A weekly health score from one-minute logs</span>
+          </div>
+        </a>
+        <a class="trust-card trust-card--food trust-card--tilt-r" href="#check">
+          <div class="trust-card__media">
+            <img src="assets/trust-food.jpg" alt="" width="640" height="480" loading="lazy" decoding="async" />
+            <span class="trust-card__chip">Free</span>
+          </div>
+          <div class="trust-card__body">
+            <span class="trust-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5" /></svg>
+            </span>
+            <strong>Always free</strong>
+            <span>Toxic-food checker, on every plan</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
     <!-- ============================ DEMO ============================ -->
-    <section class="section" id="demo" aria-labelledby="demo-title">
-      <div class="wrap feature-inner">
-        <div class="feature-text">
+    <section class="section demo-section" id="demo" aria-labelledby="demo-title">
+      <div class="wrap feature-inner demo-layout">
+        <div class="feature-text demo-copy" data-reveal>
           <p class="eyebrow">Built for the 2 a.m. question</p>
           <h2 id="demo-title">Not a search result. A reply that knows your dog.</h2>
           <p>
@@ -311,27 +354,46 @@
             last meal, last scan. It asks the one question that changes the plan, then tells you whether this is home
             rest, a same-day clinic, or the emergency hospital.
           </p>
-          <ul class="checklist">
+          <ul class="checklist demo-checklist">
             <li>Four triage levels in plain language: <b>emergency</b>, <b>urgent</b>, <b>monitor</b>, <b>routine</b></li>
             <li>Answers built on your dog's record, not a generic "dogs sometimes vomit" page</li>
             <li>Says clearly when something needs a real vet — and never pretends to be one</li>
           </ul>
-          <a class="text-link" href="https://joey.ai/signup" data-cta="signup" data-analytics="demo">
+          <a class="text-link demo-cta" href="https://joey.ai/signup" data-cta="signup" data-analytics="demo">
             Open AI Vet Chat
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
           </a>
         </div>
 
-        <div class="feature-visual">
-          <div class="device device-tilt">
-            <div class="device-bezel">
-              <div class="device-island"></div>
-              <div class="device-status" aria-hidden="true">
-                <span>9:41</span>
-                <svg viewBox="0 0 18 12" fill="currentColor"><rect x="0" y="3" width="3" height="6" rx="0.5" /><rect x="4.5" y="1.5" width="3" height="7.5" rx="0.5" /><rect x="9" y="0" width="3" height="9" rx="0.5" /><path d="M14 3.2h2.2v5.6H14A1.2 1.2 0 0 1 12.8 7.6V4.4A1.2 1.2 0 0 1 14 3.2z" /></svg>
-              </div>
+        <div class="feature-visual demo-visual" data-reveal>
+            <div class="visual-stage demo-stage" data-demo-stage data-tilt-stage>
+            <span class="blob blob-sage demo-blob" aria-hidden="true"></span>
+            <span class="demo-ring demo-ring-a" aria-hidden="true"></span>
+            <span class="demo-ring demo-ring-b" aria-hidden="true"></span>
 
-              <div class="device-screen device-screen-shot">
+            <span class="demo-float demo-float--emergency" data-parallax-chip data-depth="1.3" data-drift-x="-1.1" data-drift-y="1" aria-hidden="true">
+              <span class="feature-chip__face">emergency</span>
+            </span>
+            <span class="demo-float demo-float--urgent" data-parallax-chip data-depth="1.15" data-drift-x="1.2" data-drift-y="0.9" aria-hidden="true">
+              <span class="feature-chip__face">urgent</span>
+            </span>
+            <span class="demo-float demo-float--monitor" data-parallax-chip data-depth="1.4" data-drift-x="-1.2" data-drift-y="-1.05" aria-hidden="true">
+              <span class="feature-chip__face">monitor</span>
+            </span>
+            <span class="demo-float demo-float--routine" data-parallax-chip data-depth="1.2" data-drift-x="1.3" data-drift-y="-0.95" aria-hidden="true">
+              <span class="feature-chip__face">routine</span>
+            </span>
+
+            <div class="device device-tilt demo-device" data-demo-device data-tilt-device>
+              <div class="device-bezel">
+                <div class="device-shine" aria-hidden="true"></div>
+                <div class="device-island"></div>
+                <div class="device-status" aria-hidden="true">
+                  <span>9:41</span>
+                  <svg viewBox="0 0 18 12" fill="currentColor"><rect x="0" y="3" width="3" height="6" rx="0.5" /><rect x="4.5" y="1.5" width="3" height="7.5" rx="0.5" /><rect x="9" y="0" width="3" height="9" rx="0.5" /><path d="M14 3.2h2.2v5.6H14A1.2 1.2 0 0 1 12.8 7.6V4.4A1.2 1.2 0 0 1 14 3.2z" /></svg>
+                </div>
+
+                <div class="device-screen device-screen-shot">
                   <picture>
                     <source type="image/webp" srcset="assets/app-chat-560.webp" />
                     <img
@@ -346,7 +408,8 @@
                   </picture>
                 </div>
 
-              <div class="device-home" aria-hidden="true"></div>
+                <div class="device-home" aria-hidden="true"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -356,19 +419,78 @@
     <!-- ============================ FEATURES ============================ -->
     <section class="section section-tint" id="features" aria-labelledby="features-title">
       <div class="wrap">
-        <div class="section-head">
+        <div class="section-head" data-reveal>
           <p class="eyebrow">What Joey does</p>
           <h2 id="features-title">Four tools for the parts of care that happen between visits.</h2>
           <p class="section-lede">
             Nothing here diagnoses your dog. All of it makes the next conversation with your vet sharper.
           </p>
         </div>
+
+        <div class="feature-spotlights" data-reveal-stagger>
+          <a class="spotlight-card spotlight-card--chat spotlight-card--tilt-l" href="#feature-chat">
+            <div class="spotlight-card__media">
+              <img src="assets/photo-chat.jpg" width="1200" height="800" loading="lazy" decoding="async" alt="A happy dog smiling at the camera on a beach" />
+              <span class="spotlight-card__index" aria-hidden="true">01</span>
+            </div>
+            <div class="spotlight-card__body">
+              <span class="service-card__tag">Day or night</span>
+              <h3>Help at 2 a.m., when the clinic line just rings.</h3>
+              <span class="service-card__cta">
+                View
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+              </span>
+            </div>
+          </a>
+          <a class="spotlight-card spotlight-card--scan spotlight-card--tilt-r" href="#feature-scan">
+            <div class="spotlight-card__media">
+              <img src="assets/photo-scan.jpg" width="1200" height="800" loading="lazy" decoding="async" alt="A dog running freely along the shore" />
+              <span class="spotlight-card__index" aria-hidden="true">02</span>
+            </div>
+            <div class="spotlight-card__body">
+              <span class="service-card__tag">Point the camera</span>
+              <h3>Scan a rash, an ear, an eye. Know if it can wait.</h3>
+              <span class="service-card__cta">
+                View
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+              </span>
+            </div>
+          </a>
+          <a class="spotlight-card spotlight-card--wag spotlight-card--tilt-l" href="#feature-wag">
+            <div class="spotlight-card__media">
+              <img src="assets/photo-wag.jpg" width="1200" height="1500" loading="lazy" decoding="async" alt="A golden retriever puppy outdoors in soft natural light" />
+              <span class="spotlight-card__index" aria-hidden="true">03</span>
+            </div>
+            <div class="spotlight-card__body">
+              <span class="service-card__tag">Daily Wag</span>
+              <h3>A health picture no single visit can hold.</h3>
+              <span class="service-card__cta">
+                View
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+              </span>
+            </div>
+          </a>
+          <a class="spotlight-card spotlight-card--food spotlight-card--tilt-r" href="#check">
+            <div class="spotlight-card__media">
+              <img src="assets/trust-food.jpg" width="1200" height="800" loading="lazy" decoding="async" alt="Fresh dog food prepared in a bowl" />
+              <span class="spotlight-card__index" aria-hidden="true">04</span>
+            </div>
+            <div class="spotlight-card__body">
+              <span class="service-card__tag">Before it hits the bowl</span>
+              <h3>Check a snack. Scan a meal. Feed with a plan.</h3>
+              <span class="service-card__cta">
+                View
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+              </span>
+            </div>
+          </a>
+        </div>
       </div>
 
       <!-- Feature 1 — 24/7 chat -->
-      <article class="feature-row">
-        <div class="wrap feature-inner">
-          <div class="feature-text">
+      <article class="feature-row feature-showcase" id="feature-chat">
+        <div class="wrap feature-inner feature-showcase__layout">
+          <div class="feature-text feature-showcase__copy" data-reveal>
             <p class="eyebrow">Day or night</p>
             <h2>Help at 2 a.m., when the clinic line just rings.</h2>
             <p>
@@ -378,26 +500,46 @@
             </p>
           </div>
 
-          <div class="feature-visual">
-            <div class="device">
-              <div class="device-bezel">
-                <div class="device-island"></div>
-                <div class="device-status" aria-hidden="true"><span>9:41</span></div>
-                <div class="device-screen device-screen-shot">
-                  <picture>
-                    <source type="image/webp" srcset="assets/app-chat-plan-560.webp" />
-                    <img
-                      class="device-shot"
-                      src="assets/app-chat-plan-560.jpg"
-                      width="560"
-                      height="1063"
-                      loading="lazy"
-                      decoding="async"
-                      alt="The same Joey AI Vet conversation showing the overnight plan: warning signs to watch for, including pale gums and severe lethargy, followed by the veterinary disclaimer."
-                    />
-                  </picture>
+          <div class="feature-visual feature-showcase__visual" data-reveal>
+            <div class="visual-stage feature-stage feature-stage--peach" data-tilt-stage>
+              <span class="blob blob-peach feature-blob" aria-hidden="true"></span>
+              <span class="feature-orbit feature-orbit-a" aria-hidden="true"></span>
+              <span class="feature-orbit feature-orbit-b" aria-hidden="true"></span>
+
+              <span class="feature-chip feature-chip--a" data-parallax-chip data-depth="1.45" data-drift-x="-1" data-drift-y="1.2" aria-hidden="true">
+                <span class="feature-chip__face">2 a.m.</span>
+              </span>
+              <span class="feature-chip feature-chip--b" data-parallax-chip data-depth="1.1" data-drift-x="1.15" data-drift-y="0.85" aria-hidden="true">
+                <span class="feature-chip__face">In seconds</span>
+              </span>
+              <span class="feature-chip feature-chip--c" data-parallax-chip data-depth="1.55" data-drift-x="-1.25" data-drift-y="-1" aria-hidden="true">
+                <span class="feature-chip__face">Kitchen first</span>
+              </span>
+              <span class="feature-chip feature-chip--d" data-parallax-chip data-depth="1.25" data-drift-x="1.35" data-drift-y="-1.15" aria-hidden="true">
+                <span class="feature-chip__face">Follow-ups</span>
+              </span>
+
+              <div class="device feature-device feature-device--right" data-tilt-device>
+                <div class="device-bezel">
+                  <div class="device-shine" aria-hidden="true"></div>
+                  <div class="device-island"></div>
+                  <div class="device-status" aria-hidden="true"><span>9:41</span></div>
+                  <div class="device-screen device-screen-shot">
+                    <picture>
+                      <source type="image/webp" srcset="assets/app-chat-plan-560.webp" />
+                      <img
+                        class="device-shot"
+                        src="assets/app-chat-plan-560.jpg"
+                        width="560"
+                        height="1063"
+                        loading="lazy"
+                        decoding="async"
+                        alt="The same Joey AI Vet conversation showing the overnight plan: warning signs to watch for, including pale gums and severe lethargy, followed by the veterinary disclaimer."
+                      />
+                    </picture>
+                  </div>
+                  <div class="device-home" aria-hidden="true"></div>
                 </div>
-                <div class="device-home" aria-hidden="true"></div>
               </div>
             </div>
           </div>
@@ -405,9 +547,9 @@
       </article>
 
       <!-- Feature 2 — Image scanner -->
-      <article class="feature-row feature-row-alt">
-        <div class="wrap feature-inner">
-          <div class="feature-text">
+      <article class="feature-row feature-row-alt feature-showcase" id="feature-scan">
+        <div class="wrap feature-inner feature-showcase__layout">
+          <div class="feature-text feature-showcase__copy" data-reveal>
             <p class="eyebrow">Point the camera</p>
             <h2>Scan a rash, an ear, an eye. Know if it can wait.</h2>
             <p>
@@ -417,26 +559,53 @@
             </p>
           </div>
 
-          <div class="feature-visual">
-            <div class="device">
-              <div class="device-bezel">
-                <div class="device-island"></div>
-                <div class="device-status" aria-hidden="true"><span>9:41</span></div>
-                <div class="device-screen device-screen-shot">
-                  <picture>
-                    <source type="image/webp" srcset="assets/app-scanner-560.webp" />
-                    <img
-                      class="device-shot"
-                      src="assets/app-scanner-560.jpg"
-                      width="560"
-                      height="1063"
-                      loading="lazy"
-                      decoding="async"
-                      alt="The Image Scanner in the app, ready to take or upload a photo, with tips for a useful scan: good lighting, a close-up filling the frame, and a steady camera."
-                    />
-                  </picture>
+          <div class="feature-visual feature-showcase__visual" data-reveal>
+            <div class="visual-stage feature-stage feature-stage--sage" data-tilt-stage>
+              <span class="blob blob-sage feature-blob" aria-hidden="true"></span>
+              <span class="feature-orbit feature-orbit-a" aria-hidden="true"></span>
+              <span class="feature-orbit feature-orbit-b" aria-hidden="true"></span>
+
+              <span class="feature-chip feature-chip--scan-a" data-parallax-chip data-depth="1.35" data-drift-x="-1.1" data-drift-y="1.1" aria-hidden="true">
+                <span class="feature-chip__face">Skin &amp; coat</span>
+              </span>
+              <span class="feature-chip feature-chip--scan-b" data-parallax-chip data-depth="1.15" data-drift-x="1.2" data-drift-y="0.8" aria-hidden="true">
+                <span class="feature-chip__face">Eyes</span>
+              </span>
+              <span class="feature-chip feature-chip--scan-c" data-parallax-chip data-depth="1.5" data-drift-x="-1.25" data-drift-y="-1" aria-hidden="true">
+                <span class="feature-chip__face">Ears</span>
+              </span>
+              <span class="feature-chip feature-chip--scan-d" data-parallax-chip data-depth="1.2" data-drift-x="1.3" data-drift-y="-1.1" aria-hidden="true">
+                <span class="feature-chip__face">Triage</span>
+              </span>
+
+              <figure class="photo-orb photo-orb-scan feature-orb">
+                <picture>
+                  <source type="image/webp" srcset="assets/scan-560.webp" />
+                  <img src="assets/scan-dog.jpg" width="560" height="700" loading="lazy" decoding="async" alt="A dog being examined during a skin scan." />
+                </picture>
+              </figure>
+
+              <div class="device feature-device feature-device--left" data-tilt-device>
+                <div class="device-bezel">
+                  <div class="device-shine" aria-hidden="true"></div>
+                  <div class="device-island"></div>
+                  <div class="device-status" aria-hidden="true"><span>9:41</span></div>
+                  <div class="device-screen device-screen-shot">
+                    <picture>
+                      <source type="image/webp" srcset="assets/app-scanner-560.webp" />
+                      <img
+                        class="device-shot"
+                        src="assets/app-scanner-560.jpg"
+                        width="560"
+                        height="1063"
+                        loading="lazy"
+                        decoding="async"
+                        alt="The Image Scanner in the app, ready to take or upload a photo, with tips for a useful scan: good lighting, a close-up filling the frame, and a steady camera."
+                      />
+                    </picture>
+                  </div>
+                  <div class="device-home" aria-hidden="true"></div>
                 </div>
-                <div class="device-home" aria-hidden="true"></div>
               </div>
             </div>
           </div>
@@ -444,9 +613,9 @@
       </article>
 
       <!-- Feature 3 — Daily Wag -->
-      <article class="feature-row">
+      <article class="feature-row" id="feature-wag">
         <div class="wrap feature-inner">
-          <div class="feature-text">
+          <div class="feature-text" data-reveal>
             <p class="eyebrow">Daily Wag</p>
             <h2>A health picture no single visit can hold.</h2>
             <p>
@@ -456,31 +625,56 @@
             </p>
           </div>
 
-          <div class="feature-visual">
+          <div class="feature-visual" data-reveal>
             <div class="metrics" role="group" aria-label="Example Daily Wag summary">
               <div class="metric-card metric-hero">
-                <span class="metric-label">Daily Wag</span>
-                <span class="metric-value">84</span>
-                <span class="metric-hint">Steady week · Labrador, 28.4 kg</span>
-                <svg class="ring" viewBox="0 0 120 120" aria-hidden="true">
-                  <circle cx="60" cy="60" r="50" />
-                  <circle cx="60" cy="60" r="50" class="ring-fill" />
-                </svg>
+                <div class="metric-hero-copy">
+                  <span class="metric-label">Daily Wag</span>
+                  <span class="metric-value" data-metric-score>84</span>
+                  <span class="metric-hint">Steady week · Labrador, 28.4 kg</span>
+                  <span class="metric-chip metric-chip--good">On track</span>
+                </div>
+                <div class="metric-ring-wrap" aria-hidden="true">
+                  <svg class="ring" viewBox="0 0 120 120">
+                    <defs>
+                      <linearGradient id="wag-ring" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#3E6B4C" />
+                        <stop offset="55%" stop-color="#2F6A4A" />
+                        <stop offset="100%" stop-color="#C1633F" />
+                      </linearGradient>
+                    </defs>
+                    <circle cx="60" cy="60" r="50" class="ring-track" />
+                    <circle cx="60" cy="60" r="50" class="ring-fill" pathLength="100" />
+                  </svg>
+                  <span class="metric-ring-label">84%</span>
+                </div>
               </div>
-              <div class="metric-card">
+              <div class="metric-card metric-appetite">
+                <span class="metric-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c2.5 3.5 4 6.2 4 9a4 4 0 1 1-8 0c0-2.8 1.5-5.5 4-9z" /><path d="M9.5 14.5c.8 1.4 2 2.2 2.5 3.5" /></svg>
+                </span>
                 <span class="metric-label">Appetite</span>
                 <span class="metric-value metric-sm">Normal</span>
                 <span class="metric-hint">Finished both meals</span>
               </div>
-              <div class="metric-card">
+              <div class="metric-card metric-walks">
+                <span class="metric-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 4a2 2 0 1 1-4 0 2 2 0 0 1 4 0z" /><path d="M8 22l2.2-6.2L8 13l3-4 3.5 2.5L18 10" /><path d="M12 22l1-5 3 1 2 4" /></svg>
+                </span>
                 <span class="metric-label">Walks</span>
                 <span class="metric-value metric-sm">6.2 km</span>
                 <span class="metric-hint">Above the 7-day average</span>
               </div>
-              <div class="metric-card">
+              <div class="metric-card metric-energy">
+                <span class="metric-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 10-14h-7l0-6z" /></svg>
+                </span>
                 <span class="metric-label">Energy</span>
                 <span class="metric-value metric-sm">7 / 10</span>
                 <span class="metric-hint">Playful after dinner</span>
+                <div class="metric-bars" aria-hidden="true">
+                  <span class="is-on"></span><span class="is-on"></span><span class="is-on"></span><span class="is-on"></span><span class="is-on"></span><span class="is-on"></span><span class="is-on"></span><span></span><span></span><span></span>
+                </div>
               </div>
             </div>
           </div>
@@ -488,9 +682,9 @@
       </article>
 
       <!-- Feature 4 — Food + diet, with the live checker -->
-      <article class="feature-row feature-row-alt" id="check">
-        <div class="wrap feature-inner">
-          <div class="feature-text">
+      <article class="feature-row feature-row-alt feature-showcase" id="check">
+        <div class="wrap feature-inner feature-showcase__layout">
+          <div class="feature-text feature-showcase__copy" data-reveal>
             <p class="eyebrow">Before it hits the bowl</p>
             <h2>Check a snack. Scan a meal. Feed with a plan.</h2>
             <p>
@@ -499,7 +693,7 @@
               the cupboard.
             </p>
 
-            <form class="checker" data-checker novalidate>
+            <form class="checker checker--premium" data-checker novalidate>
               <label for="food-q">Can my dog eat this?</label>
               <div class="checker-row">
                 <input
@@ -522,26 +716,50 @@
             </form>
           </div>
 
-          <div class="feature-visual">
-            <div class="device">
-              <div class="device-bezel">
-                <div class="device-island"></div>
-                <div class="device-status" aria-hidden="true"><span>9:41</span></div>
-                <div class="device-screen device-screen-shot">
-                  <picture>
-                    <source type="image/webp" srcset="assets/app-diet-560.webp" />
-                    <img
-                      class="device-shot"
-                      src="assets/app-diet-560.jpg"
-                      width="560"
-                      height="1063"
-                      loading="lazy"
-                      decoding="async"
-                      alt="The Diet & Nutrition screen in the app for Bruno, with recipe, meal-logging and verified-food sections plus share and PDF export."
-                    />
-                  </picture>
+          <div class="feature-visual feature-showcase__visual" data-reveal>
+            <div class="visual-stage feature-stage feature-stage--peach" data-tilt-stage>
+              <span class="blob blob-peach feature-blob" aria-hidden="true"></span>
+              <span class="feature-orbit feature-orbit-a" aria-hidden="true"></span>
+              <span class="feature-orbit feature-orbit-b" aria-hidden="true"></span>
+
+              <span class="feature-chip feature-chip--food-a" data-parallax-chip data-depth="1.4" data-drift-x="-1.15" data-drift-y="1.05" aria-hidden="true">
+                <span class="feature-chip__face">Risk now</span>
+              </span>
+              <span class="feature-chip feature-chip--food-b" data-parallax-chip data-depth="1.1" data-drift-x="1.2" data-drift-y="0.85" aria-hidden="true">
+                <span class="feature-chip__face">Meal logs</span>
+              </span>
+              <span class="feature-chip feature-chip--food-c" data-parallax-chip data-depth="1.5" data-drift-x="-1.3" data-drift-y="-1" aria-hidden="true">
+                <span class="feature-chip__face">7-day plans</span>
+              </span>
+              <span class="feature-chip feature-chip--food-d" data-parallax-chip data-depth="1.25" data-drift-x="1.35" data-drift-y="-1.15" aria-hidden="true">
+                <span class="feature-chip__face">Allergies</span>
+              </span>
+
+              <figure class="photo-orb photo-orb-bowl feature-orb">
+                <img src="assets/food-bowl.jpg" width="560" height="420" loading="lazy" decoding="async" alt="A bowl of dog food on a kitchen counter." />
+              </figure>
+
+              <div class="device feature-device feature-device--left" data-tilt-device>
+                <div class="device-bezel">
+                  <div class="device-shine" aria-hidden="true"></div>
+                  <div class="device-island"></div>
+                  <div class="device-status" aria-hidden="true"><span>9:41</span></div>
+                  <div class="device-screen device-screen-shot">
+                    <picture>
+                      <source type="image/webp" srcset="assets/app-diet-560.webp" />
+                      <img
+                        class="device-shot"
+                        src="assets/app-diet-560.jpg"
+                        width="560"
+                        height="1063"
+                        loading="lazy"
+                        decoding="async"
+                        alt="The Diet & Nutrition screen in the app for Bruno, with recipe, meal-logging and verified-food sections plus share and PDF export."
+                      />
+                    </picture>
+                  </div>
+                  <div class="device-home" aria-hidden="true"></div>
                 </div>
-                <div class="device-home" aria-hidden="true"></div>
               </div>
             </div>
           </div>
@@ -552,7 +770,7 @@
     <!-- ============================ EVERYTHING INSIDE ============================ -->
     <section class="section" id="everything" aria-labelledby="everything-title">
       <div class="wrap">
-        <div class="section-head is-centred">
+        <div class="section-head is-centred" data-reveal>
           <p class="eyebrow">Explore Joey</p>
           <h2 id="everything-title">Everything between visits, in one home.</h2>
           <p class="section-lede">
@@ -561,37 +779,171 @@
           </p>
         </div>
 
-        <div class="explore-grid">
-          <div class="explore-card">
-            <span class="explore-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9a2 2 0 0 1 3.4 0l7.4 13a2 2 0 0 1-1.7 3H4.6a2 2 0 0 1-1.7-3z" /><path d="M12 9v4M12 17h.01" /></svg>
-            </span>
-            <h3>Breed alerts</h3>
-            <p>Breed-specific risks and what to watch this season — not a generic "all dogs" article.</p>
+        <div class="service-bento" data-reveal-stagger>
+          <article class="service-card service-card--featured">
+            <div class="service-card__media">
+              <img
+                src="assets/photo-care.jpg"
+                width="1400"
+                height="933"
+                loading="lazy"
+                decoding="async"
+                alt="A person caring for their dog outdoors"
+              />
+            </div>
+            <div class="service-card__body">
+              <span class="service-card__tag">AI Vet Chat</span>
+              <h3>Talk to Joey</h3>
+              <p>Live AI vet chat for the moment in front of you. Clear triage, then a plan you can follow tonight.</p>
+              <a class="service-card__cta" href="https://joey.ai/signup" data-cta="chat" data-analytics="explore-chat">
+                Open chat
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-card__media">
+              <img
+                src="assets/photo-breed.jpg"
+                width="1200"
+                height="800"
+                loading="lazy"
+                decoding="async"
+                alt="A Welsh Corgi outdoors, looking toward the camera"
+              />
+            </div>
+            <div class="service-card__body">
+              <span class="service-card__tag">Breed care</span>
+              <h3>Breed alerts</h3>
+              <p>Breed-specific risks and what to watch this season — not a generic "all dogs" article.</p>
+              <a class="service-card__cta" href="https://joey.ai/signup" data-cta="signup" data-analytics="explore-breed">
+                See alerts
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-card__media">
+              <img
+                src="assets/photo-records.jpg"
+                width="1200"
+                height="800"
+                loading="lazy"
+                decoding="async"
+                alt="Two happy dogs outdoors together"
+              />
+            </div>
+            <div class="service-card__body">
+              <span class="service-card__tag">Health file</span>
+              <h3>Records &amp; vaccines</h3>
+              <p>Vaccinations, labs, and medications in one file, with shareable summaries for the clinic.</p>
+              <a class="service-card__cta" href="https://joey.ai/signup" data-cta="signup" data-analytics="explore-records">
+                Open records
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="service-card service-card--wide">
+            <div class="service-card__media">
+              <img
+                src="assets/food-bowl.jpg"
+                width="560"
+                height="420"
+                loading="lazy"
+                decoding="async"
+                alt="A bowl of dog food ready to serve"
+              />
+            </div>
+            <div class="service-card__body">
+              <span class="service-card__tag">Nutrition</span>
+              <h3>Food &amp; diet tools</h3>
+              <p>Toxic-food checker, calorie tracking, and meal plans that respect the allergies you already entered.</p>
+              <a class="service-card__cta" href="#check">
+                Try the food checker
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ REVIEWS ============================ -->
+    <section class="section reviews" id="reviews" aria-labelledby="reviews-title">
+      <div class="wrap">
+        <div class="reviews-shell" data-reveal>
+          <div class="reviews-head">
+            <p class="eyebrow">Loved by dog parents</p>
+            <h2 id="reviews-title">What people say about Joey</h2>
           </div>
 
-          <div class="explore-card">
-            <span class="explore-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6M12 11v6M9 14h6" /></svg>
-            </span>
-            <h3>Records &amp; vaccines</h3>
-            <p>Vaccinations, labs, and medications in one file, with shareable summaries for the clinic.</p>
+          <div class="reviews-slider" data-reviews>
+            <div class="reviews-track" data-reviews-track>
+              <article class="review-card">
+                <p class="review-quote" aria-hidden="true">“</p>
+                <h3>Calm at 2 a.m.</h3>
+                <p>Bruno threw up twice after midnight. Joey asked the right questions, told me what to watch for, and I slept knowing we weren't guessing from a forum thread.</p>
+                <footer class="review-author">
+                  <img src="assets/avatar-1.jpg" width="64" height="64" alt="" loading="lazy" decoding="async" />
+                  <div>
+                    <strong>Ananya M.</strong>
+                    <span>Joey AI parent</span>
+                  </div>
+                </footer>
+              </article>
+
+              <article class="review-card">
+                <p class="review-quote" aria-hidden="true">“</p>
+                <h3>The scan that saved a drive</h3>
+                <p>I photographed Milo's ear at 7 a.m. Joey said it could wait until our regular vet — and the clinic agreed. One clear triage beat an hour of panic Googling.</p>
+                <footer class="review-author">
+                  <img src="assets/avatar-2.jpg" width="64" height="64" alt="" loading="lazy" decoding="async" />
+                  <div>
+                    <strong>Rohan K.</strong>
+                    <span>Joey AI parent</span>
+                  </div>
+                </footer>
+              </article>
+
+              <article class="review-card">
+                <p class="review-quote" aria-hidden="true">“</p>
+                <h3>Before it hits the bowl</h3>
+                <p>The free food checker caught xylitol in a “healthy” peanut butter I almost shared. That alone made Joey feel less like an app and more like a second set of eyes.</p>
+                <footer class="review-author">
+                  <img src="assets/avatar-3.jpg" width="64" height="64" alt="" loading="lazy" decoding="async" />
+                  <div>
+                    <strong>Priya S.</strong>
+                    <span>Joey AI parent</span>
+                  </div>
+                </footer>
+              </article>
+
+              <article class="review-card">
+                <p class="review-quote" aria-hidden="true">“</p>
+                <h3>A file the clinic actually wants</h3>
+                <p>Daily Wag logs plus vaccines in one place meant our vet appointment started with history instead of “when did this start?” We walked out with a sharper plan.</p>
+                <footer class="review-author">
+                  <img src="assets/avatar-4.jpg" width="64" height="64" alt="" loading="lazy" decoding="async" />
+                  <div>
+                    <strong>Dev P.</strong>
+                    <span>Joey AI parent</span>
+                  </div>
+                </footer>
+              </article>
+            </div>
+
+            <div class="reviews-dots" data-reviews-dots role="tablist" aria-label="Review slides">
+              <button type="button" class="is-active" aria-label="Show reviews 1 to 3" aria-selected="true"></button>
+              <button type="button" aria-label="Show reviews 2 to 4" aria-selected="false"></button>
+              <button type="button" aria-label="Show last reviews" aria-selected="false"></button>
+            </div>
           </div>
 
-          <div class="explore-card">
-            <span class="explore-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7" /><path d="M20 20l-3.6-3.6" /></svg>
-            </span>
-            <h3>Food &amp; diet tools</h3>
-            <p>Toxic-food checker, calorie tracking, and meal plans that respect the allergies you already entered.</p>
-          </div>
-
-          <div class="explore-card">
-            <span class="explore-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.9 8.9 0 0 1-3.9-.9L3 21l1.9-5A8.4 8.4 0 0 1 12 3.1a8.4 8.4 0 0 1 9 8.4z" /></svg>
-            </span>
-            <h3>Talk to Joey</h3>
-            <p>Live AI vet chat for the moment in front of you. Clear triage, then a plan you can follow tonight.</p>
+          <div class="reviews-stage" aria-hidden="true">
+            <p class="reviews-watermark">people say</p>
           </div>
         </div>
       </div>
@@ -600,7 +952,7 @@
     <!-- ============================ PRICING ============================ -->
     <section class="section section-tint" id="pricing" aria-labelledby="pricing-title">
       <div class="wrap">
-        <div class="section-head is-centred">
+        <div class="section-head is-centred" data-reveal>
           <p class="eyebrow">Pricing</p>
           <h2 id="pricing-title">Start free. Upgrade only if Joey earns it.</h2>
           <p class="section-lede">
@@ -608,7 +960,7 @@
           </p>
         </div>
 
-        <div class="plan-grid">
+        <div class="plan-grid" data-reveal-stagger>
           <div class="plan">
             <h3>Free</h3>
             <div class="plan-price">₹0<span>/ forever</span></div>
@@ -667,23 +1019,44 @@
 
     <!-- ============================ CLOSING CTA ============================ -->
     <section class="close-cta" aria-labelledby="close-title">
-      <div class="wrap">
-        <div class="close-inner">
-          <h2 id="close-title">They already trust you with the night. Keep the next step in your pocket.</h2>
-          <p>Works in any browser — nothing to download. Free to start, no card. Dogs only, on purpose.</p>
+      <div class="wrap close-wrap">
+        <div class="close-inner" data-close-slideshow data-reveal>
+          <div class="close-slides" aria-hidden="true">
+            <img class="close-photo is-active" src="assets/close-slide-1.jpg" width="1600" height="900" loading="eager" decoding="async" alt="" />
+            <img class="close-photo" src="assets/close-slide-2.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="" />
+            <img class="close-photo" src="assets/close-slide-3.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="" />
+            <img class="close-photo" src="assets/close-slide-4.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="" />
+            <img class="close-photo" src="assets/close-slide-5.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="" />
+            <img class="close-photo" src="assets/photo-chat.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="" />
+          </div>
+
+          <div class="close-copy">
+            <p class="close-eyebrow">Joey AI</p>
+            <h2 id="close-title">They already trust you with the night. Keep the next step in your pocket.</h2>
+            <p>Works in any browser — nothing to download. Free to start, no card. Dogs only, on purpose.</p>
+            <a class="btn btn-primary btn-lg" href="https://joey.ai/signup" data-cta="signup" data-analytics="close">Start free</a>
+          </div>
+
+          <div class="close-dots" role="tablist" aria-label="Closing slideshow"></div>
+          <button type="button" class="close-nav close-nav--prev" data-close-prev aria-label="Previous slide">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6" /></svg>
+          </button>
+          <button type="button" class="close-nav close-nav--next" data-close-next aria-label="Next slide">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6" /></svg>
+          </button>
         </div>
       </div>
     </section>
 
     <!-- ============================ FAQ ============================ -->
-    <section class="section" id="faq" aria-labelledby="faq-title">
+    <section class="section faq-section" id="faq" aria-labelledby="faq-title">
       <div class="wrap faq-wrap">
-        <div class="section-head">
+        <div class="section-head faq-head" data-reveal>
           <p class="eyebrow">FAQ</p>
           <h2 id="faq-title">Questions dog parents ask first</h2>
         </div>
 
-        <div class="faq-list">
+        <div class="faq-list" data-reveal-stagger>
           <div class="faq-item">
             <h3>
               <button type="button" id="faq-btn-1" aria-expanded="false" aria-controls="faq-1">
