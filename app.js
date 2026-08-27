@@ -112,6 +112,145 @@
   })();
 
   /* ======================================================================
+     Trust card stack — driven by PAGE scroll (sticky stage, no nested scroll).
+     Clicking nav / other links scrolls the page normally and skips the runway.
+     ====================================================================== */
+
+  (function trustStack() {
+    var section = $('[data-trust-scroll]');
+    var root = $('[data-trust-stack]');
+    if (!section || !root) return;
+
+    var cards = $$('[data-trust-card]', root);
+    if (!cards.length) return;
+
+    var deck = root.closest('.trust-deck') || section;
+    var dotsWrap = $('[data-trust-dots]', deck);
+    var prevBtn = $('[data-trust-prev]', deck);
+    var nextBtn = $('[data-trust-next]', deck);
+    var index = 0;
+    var n = cards.length;
+    var isNarrow = false;
+    var ticking = false;
+    var scrollingProgrammatic = false;
+
+    section.style.setProperty('--trust-steps', String(n));
+
+    if (dotsWrap) {
+      cards.forEach(function (_, i) {
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.setAttribute('role', 'tab');
+        btn.setAttribute('aria-label', 'Highlight ' + (i + 1));
+        btn.addEventListener('click', function () {
+          scrollToIndex(i);
+        });
+        dotsWrap.appendChild(btn);
+      });
+    }
+
+    var dots = dotsWrap ? $$('button', dotsWrap) : [];
+
+    function measure() {
+      isNarrow = window.matchMedia('(max-width: 860px)').matches;
+    }
+
+    function clamp(v, a, b) {
+      return Math.max(a, Math.min(b, v));
+    }
+
+    function scrollBounds() {
+      var top = section.offsetTop;
+      var track = Math.max(1, section.offsetHeight - window.innerHeight);
+      return { start: top, end: top + track, track: track };
+    }
+
+    function progressFromScroll() {
+      var b = scrollBounds();
+      return clamp((window.scrollY - b.start) / b.track, 0, 1);
+    }
+
+    function indexFromProgress(p) {
+      if (p >= 0.999) return n - 1;
+      return clamp(Math.floor(p * n), 0, n - 1);
+    }
+
+    function applyStack(active) {
+      index = active;
+      cards.forEach(function (card, i) {
+        var depth = (i - index + n) % n;
+        card.setAttribute('data-stack', String(depth));
+        card.classList.toggle('is-front', depth === 0);
+        card.setAttribute('aria-hidden', depth === 0 ? 'false' : 'true');
+      });
+
+      dots.forEach(function (dot, di) {
+        var on = di === index;
+        dot.classList.toggle('is-active', on);
+        dot.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+    }
+
+    function syncFromScroll() {
+      if (isNarrow || prefersReducedMotion) {
+        cards.forEach(function (card) {
+          card.classList.add('is-front');
+          card.setAttribute('data-stack', '0');
+          card.setAttribute('aria-hidden', 'false');
+        });
+        return;
+      }
+      applyStack(indexFromProgress(progressFromScroll()));
+    }
+
+    function scrollToIndex(i) {
+      if (isNarrow) return;
+      i = ((i % n) + n) % n;
+      var b = scrollBounds();
+      // Center of each card's scroll segment
+      var target = b.start + ((i + 0.5) / n) * b.track;
+      scrollingProgrammatic = true;
+      window.scrollTo({
+        top: target,
+        behavior: prefersReducedMotion ? 'auto' : 'smooth'
+      });
+      applyStack(i);
+      window.setTimeout(function () {
+        scrollingProgrammatic = false;
+      }, 700);
+    }
+
+    function onScroll() {
+      if (ticking || scrollingProgrammatic) return;
+      ticking = true;
+      window.requestAnimationFrame(function () {
+        ticking = false;
+        syncFromScroll();
+      });
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', function () {
+        scrollToIndex(index - 1);
+      });
+    }
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function () {
+        scrollToIndex(index + 1);
+      });
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', function () {
+      measure();
+      syncFromScroll();
+    }, { passive: true });
+
+    measure();
+    syncFromScroll();
+  })();
+
+  /* ======================================================================
      Mobile menu
      ----------------------------------------------------------------------
      Closes on link click, Escape, and outside click. Focus returns to the
@@ -793,101 +932,46 @@
   })();
 
   /* ======================================================================
-     Reviews carousel — scroll-snap track + dots. No libraries.
+     Reviews — continuous slow marquee (page scroll unaffected).
      ====================================================================== */
 
   (function reviewsCarousel() {
     var root = $('[data-reviews]');
     var track = $('[data-reviews-track]');
-    var dotsWrap = $('[data-reviews-dots]');
-    if (!root || !track || !dotsWrap) return;
+    if (!root || !track) return;
 
-    var dots = $$('button', dotsWrap);
     var cards = $$('.review-card', track);
-    if (!cards.length || !dots.length) return;
+    if (!cards.length) return;
 
-    var autoTimer = null;
-    var index = 0;
-
-    function maxIndex() {
-      return Math.max(0, cards.length - visibleCount());
+    if (prefersReducedMotion) {
+      track.classList.remove('is-marquee');
+      return;
     }
 
-    function visibleCount() {
-      var w = track.clientWidth;
-      if (w < 560) return 1;
-      if (w < 900) return 2;
-      return 3;
-    }
-
-    function syncDots() {
-      dots.forEach(function (dot, di) {
-        var on = false;
-        if (dots.length === 3) {
-          if (index <= 0) on = di === 0;
-          else if (index >= maxIndex()) on = di === 2;
-          else on = di === 1;
-        } else {
-          on = di === index;
-        }
-        dot.classList.toggle('is-active', on);
-        dot.setAttribute('aria-selected', on ? 'true' : 'false');
+    // Duplicate cards once for a seamless -50% loop.
+    cards.forEach(function (card) {
+      var clone = card.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      clone.querySelectorAll('a, button').forEach(function (el) {
+        el.setAttribute('tabindex', '-1');
       });
-    }
-
-    function goTo(i) {
-      index = Math.max(0, Math.min(i, maxIndex()));
-      var card = cards[index];
-      if (!card) return;
-      track.scrollTo({
-        left: card.offsetLeft - (parseFloat(getComputedStyle(track).paddingLeft) || 0),
-        behavior: prefersReducedMotion ? 'auto' : 'smooth'
-      });
-      syncDots();
-    }
-
-    dots.forEach(function (dot, di) {
-      dot.addEventListener('click', function () {
-        if (di === 0) goTo(0);
-        else if (di === dots.length - 1) goTo(maxIndex());
-        else goTo(Math.max(1, Math.floor(maxIndex() / 2)));
-        restartAuto();
-      });
+      track.appendChild(clone);
     });
 
-    function onScroll() {
-      var nearest = 0;
-      var best = Infinity;
-      var leftPad = parseFloat(getComputedStyle(track).paddingLeft) || 0;
-      cards.forEach(function (card, i) {
-        var dist = Math.abs(card.offsetLeft - leftPad - track.scrollLeft);
-        if (dist < best) {
-          best = dist;
-          nearest = i;
-        }
-      });
-      index = nearest;
-      syncDots();
+    track.classList.add('is-marquee');
+
+    // Pause when the section is off-screen to save work.
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            track.classList.toggle('is-paused', !entry.isIntersecting);
+          });
+        },
+        { threshold: 0.05 }
+      );
+      observer.observe(root);
     }
-
-    track.addEventListener('scroll', onScroll, { passive: true });
-
-    function restartAuto() {
-      if (autoTimer) window.clearInterval(autoTimer);
-      if (prefersReducedMotion) return;
-      autoTimer = window.setInterval(function () {
-        var next = index + 1;
-        if (next > maxIndex()) next = 0;
-        goTo(next);
-      }, 5200);
-    }
-
-    window.addEventListener('resize', function () {
-      goTo(Math.min(index, maxIndex()));
-    });
-
-    goTo(0);
-    restartAuto();
   })();
 
   /* ======================================================================
@@ -1046,7 +1130,7 @@
   })();
 
   /* ======================================================================
-     Feature phones — premium pointer tilt for all tilt stages
+     Feature phones — pointer shine only (phones stay upright).
      ====================================================================== */
 
   (function featureDeviceTilt() {
@@ -1060,67 +1144,12 @@
       var device = stage.querySelector('[data-tilt-device]');
       if (!device) return;
 
-      var frame = 0;
-      var targetX = 0;
-      var targetY = 0;
-      var currentX = 0;
-      var currentY = 0;
-      var active = false;
-      var baseY = device.classList.contains('feature-device--right')
-        ? 10
-        : device.classList.contains('feature-device--left')
-          ? -10
-          : -10;
-      var baseRot = device.classList.contains('feature-device--right')
-        ? 2
-        : device.classList.contains('feature-device--left')
-          ? -2
-          : -2;
-
-      function render() {
-        currentX += (targetX - currentX) * 0.12;
-        currentY += (targetY - currentY) * 0.12;
-        device.style.transform =
-          'rotateY(' +
-          (baseY + currentX) +
-          'deg) rotateX(' +
-          (5 - currentY) +
-          'deg) rotate(' +
-          (baseRot + currentX * 0.08) +
-          'deg) translateY(' +
-          -currentY * 0.35 +
-          'px)';
-        frame = window.requestAnimationFrame(render);
-      }
-
       stage.addEventListener('pointerenter', function () {
-        active = true;
-        device.classList.add('is-tilting', 'is-lit');
-        if (!frame) frame = window.requestAnimationFrame(render);
+        device.classList.add('is-lit');
       });
 
       stage.addEventListener('pointerleave', function () {
-        active = false;
-        targetX = 0;
-        targetY = 0;
         device.classList.remove('is-lit');
-        window.setTimeout(function () {
-          if (active) return;
-          device.classList.remove('is-tilting');
-          device.style.transform = '';
-          if (frame) {
-            window.cancelAnimationFrame(frame);
-            frame = 0;
-          }
-        }, 280);
-      });
-
-      stage.addEventListener('pointermove', function (event) {
-        var rect = stage.getBoundingClientRect();
-        var px = (event.clientX - rect.left) / rect.width - 0.5;
-        var py = (event.clientY - rect.top) / rect.height - 0.5;
-        targetX = Math.max(-1, Math.min(1, px)) * 14;
-        targetY = Math.max(-1, Math.min(1, py)) * 10;
       });
     });
   })();

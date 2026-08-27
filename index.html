@@ -32,10 +32,10 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Outfit:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,500;1,8..60,600&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
 
   <link rel="preload" as="image" href="assets/photo-care.jpg" fetchpriority="high" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=reviews-shell-1" />
 
   <script type="application/ld+json">
   {
@@ -286,60 +286,100 @@
     </section>
 
     <!-- ============================ TRUST STRIP ============================ -->
-    <section class="trust" aria-label="What Joey AI includes">
-      <div class="wrap trust-row" data-reveal-stagger>
-        <a class="trust-card trust-card--chat trust-card--tilt-l" href="#feature-chat">
-          <div class="trust-card__media">
-            <img src="assets/trust-chat.jpg" alt="" width="640" height="480" loading="lazy" decoding="async" />
-            <span class="trust-card__chip">Chat</span>
+    <section class="trust" id="highlights" data-trust-scroll aria-label="What Joey AI includes">
+      <div class="trust-pin">
+        <div class="wrap trust-deck">
+          <div
+            class="trust-stack"
+            data-trust-stack
+            role="region"
+            aria-roledescription="scroll-driven carousel"
+            aria-label="Joey AI highlights"
+          >
+            <article class="trust-card trust-card--chat is-front" data-trust-card data-href="#feature-chat">
+              <div class="trust-card__copy">
+                <div class="trust-card__meta">
+                  <span class="trust-card__chip">AI Chat · Free</span>
+                  <span class="trust-card__status"><i aria-hidden="true"></i> Always on</span>
+                </div>
+                <h3 class="trust-card__title">1 a day</h3>
+                <p class="trust-card__lede">Free AI vet chats, every day, forever.</p>
+                <p class="trust-card__notes">Includes: triage in plain language, breed-aware replies, and a clear next step for tonight.</p>
+                <div class="trust-card__actions">
+                  <a class="btn btn-primary trust-card__cta" href="#feature-chat">Open chat</a>
+                </div>
+              </div>
+              <div class="trust-card__media">
+                <img src="assets/trust-chat.jpg" alt="" width="900" height="1100" loading="lazy" decoding="async" />
+              </div>
+            </article>
+
+            <article class="trust-card trust-card--scan" data-trust-card data-href="#feature-scan">
+              <div class="trust-card__copy">
+                <div class="trust-card__meta">
+                  <span class="trust-card__chip">Scanner · 6 types</span>
+                  <span class="trust-card__status"><i aria-hidden="true"></i> Photo ready</span>
+                </div>
+                <h3 class="trust-card__title">6 scan types</h3>
+                <p class="trust-card__lede">Skin, eye, ear, wound, dental, stool.</p>
+                <p class="trust-card__notes">Includes: location, colour, and pattern read against your dog’s breed and medications.</p>
+                <div class="trust-card__actions">
+                  <a class="btn btn-primary trust-card__cta" href="#feature-scan">See scanners</a>
+                </div>
+              </div>
+              <div class="trust-card__media">
+                <img src="assets/trust-scan.jpg" alt="" width="900" height="1100" loading="lazy" decoding="async" />
+              </div>
+            </article>
+
+            <article class="trust-card trust-card--wag" data-trust-card data-href="#feature-wag">
+              <div class="trust-card__copy">
+                <div class="trust-card__meta">
+                  <span class="trust-card__chip">Health · Daily Wag</span>
+                  <span class="trust-card__status"><i aria-hidden="true"></i> One-minute logs</span>
+                </div>
+                <h3 class="trust-card__title">Daily Wag</h3>
+                <p class="trust-card__lede">A weekly health score from one-minute logs.</p>
+                <p class="trust-card__notes">Includes: energy, appetite, stool, and mood tracked as a calm weekly picture.</p>
+                <div class="trust-card__actions">
+                  <a class="btn btn-primary trust-card__cta" href="#feature-wag">View Daily Wag</a>
+                </div>
+              </div>
+              <div class="trust-card__media">
+                <img src="assets/trust-wag.jpg" alt="" width="900" height="1100" loading="lazy" decoding="async" />
+              </div>
+            </article>
+
+            <article class="trust-card trust-card--food" data-trust-card data-href="#check">
+              <div class="trust-card__copy">
+                <div class="trust-card__meta">
+                  <span class="trust-card__chip">Nutrition · Free</span>
+                  <span class="trust-card__status"><i aria-hidden="true"></i> On every plan</span>
+                </div>
+                <h3 class="trust-card__title">Always free</h3>
+                <p class="trust-card__lede">Toxic-food checker, on every plan.</p>
+                <p class="trust-card__notes">Includes: kitchen checks before it hits the bowl, plus diet tools that respect allergies.</p>
+                <div class="trust-card__actions">
+                  <a class="btn btn-primary trust-card__cta" href="#check">Try the checker</a>
+                </div>
+              </div>
+              <div class="trust-card__media">
+                <img src="assets/trust-food.jpg" alt="" width="900" height="1100" loading="lazy" decoding="async" />
+              </div>
+            </article>
           </div>
-          <div class="trust-card__body">
-            <span class="trust-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.9 8.9 0 0 1-3.9-.9L3 21l1.9-5A8.4 8.4 0 0 1 12 3.1a8.4 8.4 0 0 1 9 8.4z" /></svg>
-            </span>
-            <strong>1 a day</strong>
-            <span>Free AI vet chats, every day, forever</span>
+
+          <div class="trust-controls">
+            <button type="button" class="trust-nav" data-trust-prev aria-label="Previous highlight">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6" /></svg>
+            </button>
+            <div class="trust-dots" data-trust-dots role="tablist" aria-label="Highlight slides"></div>
+            <button type="button" class="trust-nav" data-trust-next aria-label="Next highlight">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6" /></svg>
+            </button>
           </div>
-        </a>
-        <a class="trust-card trust-card--scan trust-card--tilt-r" href="#feature-scan">
-          <div class="trust-card__media">
-            <img src="assets/trust-scan.jpg" alt="" width="640" height="480" loading="lazy" decoding="async" />
-            <span class="trust-card__chip">Scanner</span>
-          </div>
-          <div class="trust-card__body">
-            <span class="trust-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h3l2-3h8l2 3h3a2 2 0 0 1 2 2z" /><circle cx="12" cy="13" r="4" /></svg>
-            </span>
-            <strong>6 scan types</strong>
-            <span>Skin, eye, ear, wound, dental, stool</span>
-          </div>
-        </a>
-        <a class="trust-card trust-card--wag trust-card--tilt-l" href="#feature-wag">
-          <div class="trust-card__media">
-            <img src="assets/trust-wag.jpg" alt="" width="640" height="480" loading="lazy" decoding="async" />
-            <span class="trust-card__chip">Health</span>
-          </div>
-          <div class="trust-card__body">
-            <span class="trust-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10" /><path d="M18 20V4" /><path d="M6 20v-4" /></svg>
-            </span>
-            <strong>Daily Wag</strong>
-            <span>A weekly health score from one-minute logs</span>
-          </div>
-        </a>
-        <a class="trust-card trust-card--food trust-card--tilt-r" href="#check">
-          <div class="trust-card__media">
-            <img src="assets/trust-food.jpg" alt="" width="640" height="480" loading="lazy" decoding="async" />
-            <span class="trust-card__chip">Free</span>
-          </div>
-          <div class="trust-card__body">
-            <span class="trust-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5" /></svg>
-            </span>
-            <strong>Always free</strong>
-            <span>Toxic-food checker, on every plan</span>
-          </div>
-        </a>
+          <p class="trust-hint">Scroll the page to flip cards · click a nav link or keep scrolling to skip</p>
+        </div>
       </div>
     </section>
 
@@ -881,64 +921,60 @@
           </div>
 
           <div class="reviews-slider" data-reviews>
-            <div class="reviews-track" data-reviews-track>
-              <article class="review-card">
-                <p class="review-quote" aria-hidden="true">“</p>
-                <h3>Calm at 2 a.m.</h3>
-                <p>Bruno threw up twice after midnight. Joey asked the right questions, told me what to watch for, and I slept knowing we weren't guessing from a forum thread.</p>
-                <footer class="review-author">
-                  <img src="assets/avatar-1.jpg" width="64" height="64" alt="" loading="lazy" decoding="async" />
-                  <div>
-                    <strong>Ananya M.</strong>
-                    <span>Joey AI parent</span>
-                  </div>
-                </footer>
-              </article>
+            <div class="reviews-marquee">
+              <div class="reviews-track" data-reviews-track>
+                <article class="review-card">
+                  <p class="review-quote" aria-hidden="true">“</p>
+                  <h3>Calm at 2 a.m.</h3>
+                  <p>Bruno threw up twice after midnight. Joey asked the right questions, told me what to watch for, and I slept knowing we weren't guessing from a forum thread.</p>
+                  <footer class="review-author">
+                    <img src="assets/avatar-1.jpg" width="64" height="64" alt="" loading="lazy" decoding="async" />
+                    <div>
+                      <strong>Ananya M.</strong>
+                      <span>Joey AI parent</span>
+                    </div>
+                  </footer>
+                </article>
 
-              <article class="review-card">
-                <p class="review-quote" aria-hidden="true">“</p>
-                <h3>The scan that saved a drive</h3>
-                <p>I photographed Milo's ear at 7 a.m. Joey said it could wait until our regular vet — and the clinic agreed. One clear triage beat an hour of panic Googling.</p>
-                <footer class="review-author">
-                  <img src="assets/avatar-2.jpg" width="64" height="64" alt="" loading="lazy" decoding="async" />
-                  <div>
-                    <strong>Rohan K.</strong>
-                    <span>Joey AI parent</span>
-                  </div>
-                </footer>
-              </article>
+                <article class="review-card">
+                  <p class="review-quote" aria-hidden="true">“</p>
+                  <h3>The scan that saved a drive</h3>
+                  <p>I photographed Milo's ear at 7 a.m. Joey said it could wait until our regular vet — and the clinic agreed. One clear triage beat an hour of panic Googling.</p>
+                  <footer class="review-author">
+                    <img src="assets/avatar-2.jpg" width="64" height="64" alt="" loading="lazy" decoding="async" />
+                    <div>
+                      <strong>Rohan K.</strong>
+                      <span>Joey AI parent</span>
+                    </div>
+                  </footer>
+                </article>
 
-              <article class="review-card">
-                <p class="review-quote" aria-hidden="true">“</p>
-                <h3>Before it hits the bowl</h3>
-                <p>The free food checker caught xylitol in a “healthy” peanut butter I almost shared. That alone made Joey feel less like an app and more like a second set of eyes.</p>
-                <footer class="review-author">
-                  <img src="assets/avatar-3.jpg" width="64" height="64" alt="" loading="lazy" decoding="async" />
-                  <div>
-                    <strong>Priya S.</strong>
-                    <span>Joey AI parent</span>
-                  </div>
-                </footer>
-              </article>
+                <article class="review-card">
+                  <p class="review-quote" aria-hidden="true">“</p>
+                  <h3>Before it hits the bowl</h3>
+                  <p>The free food checker caught xylitol in a “healthy” peanut butter I almost shared. That alone made Joey feel less like an app and more like a second set of eyes.</p>
+                  <footer class="review-author">
+                    <img src="assets/avatar-3.jpg" width="64" height="64" alt="" loading="lazy" decoding="async" />
+                    <div>
+                      <strong>Priya S.</strong>
+                      <span>Joey AI parent</span>
+                    </div>
+                  </footer>
+                </article>
 
-              <article class="review-card">
-                <p class="review-quote" aria-hidden="true">“</p>
-                <h3>A file the clinic actually wants</h3>
-                <p>Daily Wag logs plus vaccines in one place meant our vet appointment started with history instead of “when did this start?” We walked out with a sharper plan.</p>
-                <footer class="review-author">
-                  <img src="assets/avatar-4.jpg" width="64" height="64" alt="" loading="lazy" decoding="async" />
-                  <div>
-                    <strong>Dev P.</strong>
-                    <span>Joey AI parent</span>
-                  </div>
-                </footer>
-              </article>
-            </div>
-
-            <div class="reviews-dots" data-reviews-dots role="tablist" aria-label="Review slides">
-              <button type="button" class="is-active" aria-label="Show reviews 1 to 3" aria-selected="true"></button>
-              <button type="button" aria-label="Show reviews 2 to 4" aria-selected="false"></button>
-              <button type="button" aria-label="Show last reviews" aria-selected="false"></button>
+                <article class="review-card">
+                  <p class="review-quote" aria-hidden="true">“</p>
+                  <h3>A file the clinic actually wants</h3>
+                  <p>Daily Wag logs plus vaccines in one place meant our vet appointment started with history instead of “when did this start?” We walked out with a sharper plan.</p>
+                  <footer class="review-author">
+                    <img src="assets/avatar-4.jpg" width="64" height="64" alt="" loading="lazy" decoding="async" />
+                    <div>
+                      <strong>Dev P.</strong>
+                      <span>Joey AI parent</span>
+                    </div>
+                  </footer>
+                </article>
+              </div>
             </div>
           </div>
 
@@ -1210,6 +1246,6 @@
   </footer>
 
   <script src="config.js"></script>
-  <script src="app.js" defer></script>
+  <script src="app.js?v=reviews-marquee-1" defer></script>
 </body>
 </html>
