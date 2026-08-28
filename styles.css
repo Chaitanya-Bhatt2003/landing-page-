@@ -3111,7 +3111,7 @@ html:not(.js-reveal) .ring-fill {
 
 .reviews-marquee {
   overflow: hidden;
-  padding: 12px 0 32px;
+  padding: 12px 0 18px;
   /* Soft fade only — no curved clip cutting cards */
   -webkit-mask-image: linear-gradient(
     90deg,
@@ -3266,22 +3266,23 @@ html:not(.js-reveal) .ring-fill {
 .reviews-stage {
   position: relative;
   z-index: 1;
-  display: grid;
-  place-items: end center;
-  min-height: 250px;
-  margin-top: 12px;
-  padding-top: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 0;
+  margin-top: 0;
+  padding: 12px 0 28px;
   pointer-events: none;
 }
 
 .reviews-watermark {
-  position: absolute;
-  left: 50%;
-  bottom: 0.02em;
-  transform: translateX(-50%);
+  position: relative;
+  left: auto;
+  bottom: auto;
+  transform: none;
   margin: 0;
   font-family: var(--font-body);
-  font-size: clamp(4.2rem, 11vw, 8.5rem);
+  font-size: clamp(3.6rem, 9vw, 7rem);
   font-weight: 700;
   letter-spacing: -0.04em;
   line-height: 0.85;
@@ -4116,7 +4117,7 @@ html.js-reveal [data-reveal][data-motion="choreograph"]:not(.is-settled) > .clos
   }
 
   .reviews-stage {
-    min-height: 200px;
+    padding: 16px 0 28px;
   }
 
   .reviews-peek-frame {
