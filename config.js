@@ -46,6 +46,15 @@ window.JOEY_CONFIG = Object.assign(
      */
     gaId: '',
     clarityId: '',
+
+    /**
+     * Cinematic homepage intro overlay.
+     * Set enabled: false to skip without removing markup.
+     */
+    intro: {
+      enabled: true,
+      durationMs: 3000,
+    },
   },
   window.JOEY_CONFIG || {}
 );

@@ -1,0 +1,489 @@
+/* ==========================================================================
+   Joey AI — cinematic opening intro (standalone overlay)
+   ========================================================================== */
+
+html.joey-intro-pending,
+html.joey-intro-active {
+  overflow: hidden;
+  height: 100%;
+}
+
+html.joey-intro-pending body,
+html.joey-intro-active body {
+  overflow: hidden;
+}
+
+/* Site sits beneath overlay — one unified reveal, not per-element stutter */
+html.joey-intro-pending body > :not(#joey-intro):not(.skip-link) {
+  opacity: 0;
+  transform: translate3d(0, 14px, 0);
+  filter: blur(5px);
+}
+
+html.joey-intro-revealing body > :not(#joey-intro):not(.skip-link) {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  filter: blur(0);
+  transition:
+    opacity 0.95s cubic-bezier(0.22, 1, 0.36, 1) 0.06s,
+    transform 0.95s cubic-bezier(0.22, 1, 0.36, 1) 0.06s,
+    filter 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.1s;
+}
+
+/* -------------------------------------------------------------------------- */
+
+.joey-intro {
+  --intro-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --intro-ease-soft: cubic-bezier(0.33, 1, 0.68, 1);
+  --intro-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --intro-sage: #1a3328;
+  --intro-sage-deep: #0f2219;
+  --intro-glow: rgba(193, 99, 63, 0.22);
+
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: grid;
+  place-items: center;
+  pointer-events: auto;
+  isolation: isolate;
+  opacity: 1;
+  transition: opacity 0.88s var(--intro-ease-soft);
+}
+
+.joey-intro.is-complete,
+.joey-intro.is-revealing {
+  pointer-events: none;
+}
+
+.joey-intro.is-revealing {
+  opacity: 0;
+}
+
+.joey-intro__backdrop {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 40%, rgba(47, 106, 74, 0.22) 0%, transparent 70%),
+    radial-gradient(ellipse 120% 80% at 50% 100%, rgba(193, 99, 63, 0.08) 0%, transparent 55%),
+    linear-gradient(168deg, var(--intro-sage-deep) 0%, var(--intro-sage) 42%, #152a21 100%);
+  transition: opacity 0.88s var(--intro-ease-soft);
+}
+
+.joey-intro.is-revealing .joey-intro__backdrop {
+  opacity: 0.85;
+}
+
+.joey-intro__backdrop::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, transparent 30%, rgba(0, 0, 0, 0.35) 100%);
+  opacity: 0.6;
+}
+
+.joey-intro__grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  transition: opacity 0.7s ease;
+}
+
+.joey-intro.is-revealing .joey-intro__grain {
+  opacity: 0;
+}
+
+.joey-intro__sweep {
+  position: absolute;
+  inset: -20%;
+  background: linear-gradient(
+    105deg,
+    transparent 42%,
+    rgba(255, 255, 255, 0.035) 50%,
+    transparent 58%
+  );
+  transform: translateX(-120%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.joey-intro.is-walking .joey-intro__sweep {
+  animation: joey-intro-sweep 0.9s var(--intro-ease-out) 0.06s forwards;
+}
+
+@keyframes joey-intro-sweep {
+  0% { transform: translateX(-120%); opacity: 0; }
+  18% { opacity: 0.9; }
+  100% { transform: translateX(120%); opacity: 0; }
+}
+
+.joey-intro__stage {
+  position: relative;
+  z-index: 2;
+  width: min(92vw, 520px);
+  height: min(52vh, 360px);
+  display: grid;
+  place-items: center;
+}
+
+/* --------------------------------------------------------------------------
+   Dog character
+   -------------------------------------------------------------------------- */
+
+.joey-intro-dog {
+  position: relative;
+  width: min(72vw, 340px);
+  height: auto;
+  transform: translate3d(-115%, 6px, 0) scale(0.97);
+  opacity: 0;
+  filter: blur(7px);
+  will-change: transform, opacity, filter;
+}
+
+.joey-intro.is-walking .joey-intro-dog {
+  animation: joey-intro-dog-enter 0.88s var(--intro-ease-out) forwards;
+}
+
+.joey-intro.is-idle .joey-intro-dog,
+.joey-intro.is-greeting .joey-intro-dog,
+.joey-intro.is-morphing .joey-intro-dog {
+  transform: translate3d(0, 0, 0) scale(1);
+  opacity: 1;
+  filter: blur(0);
+}
+
+.joey-intro.is-morphing .joey-intro-dog {
+  animation: joey-intro-dog-exit 0.58s var(--intro-ease-soft) forwards;
+}
+
+.joey-intro.is-revealing .joey-intro-dog {
+  opacity: 0;
+}
+
+@keyframes joey-intro-dog-enter {
+  0% {
+    transform: translate3d(-115%, 6px, 0) scale(0.97);
+    opacity: 0;
+    filter: blur(7px);
+  }
+  65% {
+    opacity: 1;
+    filter: blur(0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+.joey-intro-dog__svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  transform-origin: 50% 85%;
+}
+
+.joey-intro-dog__shadow {
+  transform-origin: 50% 50%;
+  animation: joey-intro-shadow 0.88s var(--intro-ease-out) forwards;
+}
+
+.joey-intro.is-idle .joey-intro-dog__shadow,
+.joey-intro.is-greeting .joey-intro-dog__shadow,
+.joey-intro.is-morphing .joey-intro-dog__shadow {
+  animation: joey-intro-shadow-idle 2.2s ease-in-out infinite;
+}
+
+@keyframes joey-intro-shadow {
+  0% { transform: scaleX(0.45); opacity: 0; }
+  100% { transform: scaleX(1); opacity: 0.32; }
+}
+
+@keyframes joey-intro-shadow-idle {
+  0%, 100% { transform: scaleX(1); opacity: 0.32; }
+  50% { transform: scaleX(0.94); opacity: 0.26; }
+}
+
+.joey-intro-dog__body-wrap {
+  transform-origin: 45% 70%;
+  animation: joey-intro-breathe 2.6s ease-in-out infinite;
+}
+
+@keyframes joey-intro-breathe {
+  0%, 100% { transform: scaleY(1) translateY(0); }
+  50% { transform: scaleY(1.01) translateY(-0.5px); }
+}
+
+.joey-intro-dog__tail {
+  transform-origin: 18% 58%;
+  animation: joey-intro-tail-idle 0.62s ease-in-out infinite;
+}
+
+.joey-intro.is-walking .joey-intro-dog__tail {
+  animation: joey-intro-tail-walk 0.3s ease-in-out infinite;
+}
+
+@keyframes joey-intro-tail-walk {
+  0%, 100% { transform: rotate(-6deg); }
+  50% { transform: rotate(12deg); }
+}
+
+@keyframes joey-intro-tail-idle {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(14deg); }
+}
+
+.joey-intro-dog__head {
+  transform-origin: 68% 62%;
+}
+
+.joey-intro.is-idle .joey-intro-dog__head {
+  animation: joey-intro-head-idle 2.8s var(--intro-ease) infinite;
+}
+
+.joey-intro.is-greeting .joey-intro-dog__head {
+  animation: joey-intro-head-greet 0.48s var(--intro-ease-soft) forwards;
+}
+
+@keyframes joey-intro-head-idle {
+  0%, 100% { transform: rotate(0deg) translateY(0); }
+  45% { transform: rotate(-1.5deg) translateY(-0.5px); }
+  75% { transform: rotate(0.5deg) translateY(0); }
+}
+
+@keyframes joey-intro-head-greet {
+  0% { transform: rotate(0deg) translateY(0); }
+  40% { transform: rotate(-3deg) translateY(-2px); }
+  100% { transform: rotate(-1deg) translateY(-1px); }
+}
+
+.joey-intro-dog__ear--near {
+  transform-origin: 78% 38%;
+  animation: joey-intro-ear-near 3.6s ease-in-out infinite;
+}
+
+.joey-intro-dog__ear--far {
+  transform-origin: 62% 36%;
+  animation: joey-intro-ear-far 4.4s ease-in-out infinite;
+}
+
+@keyframes joey-intro-ear-near {
+  0%, 90%, 100% { transform: rotate(0deg); }
+  94% { transform: rotate(-5deg); }
+  97% { transform: rotate(1deg); }
+}
+
+@keyframes joey-intro-ear-far {
+  0%, 92%, 100% { transform: rotate(0deg); }
+  96% { transform: rotate(4deg); }
+}
+
+.joey-intro-dog__eye {
+  transform-origin: center;
+  animation: joey-intro-blink 3.8s ease-in-out infinite;
+}
+
+@keyframes joey-intro-blink {
+  0%, 48%, 50%, 100% { transform: scaleY(1); }
+  49% { transform: scaleY(0.1); }
+}
+
+.joey-intro-dog__pupil {
+  animation: joey-intro-look 2.6s var(--intro-ease) infinite;
+  transform-origin: center;
+}
+
+@keyframes joey-intro-look {
+  0%, 100% { transform: translate(0, 0); }
+  40% { transform: translate(-0.4px, 0); }
+  70% { transform: translate(0.3px, 0.15px); }
+}
+
+.joey-intro-dog__mouth-closed { opacity: 1; transition: opacity 0.2s ease; }
+.joey-intro-dog__mouth-open { opacity: 0; transition: opacity 0.2s ease; }
+
+.joey-intro.is-greeting .joey-intro-dog__mouth-closed { opacity: 0.85; }
+.joey-intro.is-greeting .joey-intro-dog__mouth-open {
+  opacity: 0.35;
+  transform: scale(0.96);
+}
+
+/* Walk cycle */
+.joey-intro-dog__leg--fl,
+.joey-intro-dog__leg--fr,
+.joey-intro-dog__leg--bl,
+.joey-intro-dog__leg--br {
+  transform-box: fill-box;
+}
+
+.joey-intro.is-walking .joey-intro-dog__leg--fl { animation: joey-intro-leg-a 0.3s ease-in-out infinite; }
+.joey-intro.is-walking .joey-intro-dog__leg--fr { animation: joey-intro-leg-b 0.3s ease-in-out infinite; }
+.joey-intro.is-walking .joey-intro-dog__leg--bl { animation: joey-intro-leg-b 0.3s ease-in-out infinite; }
+.joey-intro.is-walking .joey-intro-dog__leg--br { animation: joey-intro-leg-a 0.3s ease-in-out infinite; }
+
+@keyframes joey-intro-leg-a {
+  0%, 100% { transform: rotate(14deg); }
+  50% { transform: rotate(-14deg); }
+}
+
+@keyframes joey-intro-leg-b {
+  0%, 100% { transform: rotate(-14deg); }
+  50% { transform: rotate(14deg); }
+}
+
+.joey-intro.is-idle .joey-intro-dog__leg--fl,
+.joey-intro.is-idle .joey-intro-dog__leg--fr,
+.joey-intro.is-idle .joey-intro-dog__leg--bl,
+.joey-intro.is-idle .joey-intro-dog__leg--br,
+.joey-intro.is-greeting .joey-intro-dog__leg--fl,
+.joey-intro.is-greeting .joey-intro-dog__leg--fr,
+.joey-intro.is-greeting .joey-intro-dog__leg--bl,
+.joey-intro.is-greeting .joey-intro-dog__leg--br,
+.joey-intro.is-morphing .joey-intro-dog__leg--fl,
+.joey-intro.is-morphing .joey-intro-dog__leg--fr,
+.joey-intro.is-morphing .joey-intro-dog__leg--bl,
+.joey-intro.is-morphing .joey-intro-dog__leg--br {
+  animation: none;
+  transform: rotate(0deg);
+}
+
+/* Soft greet pulse — no bark ripple */
+.joey-intro__ripple {
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  width: 16px;
+  height: 16px;
+  margin: -8px 0 0 -8px;
+  border-radius: 50%;
+  border: 1px solid rgba(221, 232, 223, 0.25);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.joey-intro.is-greeting .joey-intro__ripple {
+  animation: joey-intro-ripple 0.55s var(--intro-ease-soft) forwards;
+}
+
+@keyframes joey-intro-ripple {
+  0% { transform: scale(0.4); opacity: 0.5; }
+  100% { transform: scale(8); opacity: 0; }
+}
+
+.joey-intro__ripple-glow {
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  width: 100px;
+  height: 100px;
+  margin: -50px 0 0 -50px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(193, 99, 63, 0.16) 0%, transparent 72%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.joey-intro.is-greeting .joey-intro__ripple-glow {
+  animation: joey-intro-glow 0.48s var(--intro-ease-soft) forwards;
+}
+
+@keyframes joey-intro-glow {
+  0% { transform: scale(0.6); opacity: 0.7; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+/* Logo morph */
+.joey-intro__logo {
+  position: absolute;
+  width: clamp(72px, 18vw, 104px);
+  height: auto;
+  opacity: 0;
+  transform: scale(0.78);
+  filter: blur(6px);
+  will-change: transform, opacity, filter;
+  pointer-events: none;
+  transition:
+    opacity 0.55s var(--intro-ease-soft),
+    transform 0.55s var(--intro-ease-soft),
+    filter 0.55s var(--intro-ease-soft);
+}
+
+.joey-intro.is-morphing .joey-intro__logo {
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0);
+  transition-delay: 0.14s;
+}
+
+.joey-intro.is-revealing .joey-intro__logo {
+  opacity: 0;
+  transform: scale(1.06);
+  filter: blur(4px);
+  transition-delay: 0s;
+}
+
+@keyframes joey-intro-dog-exit {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 1;
+    filter: blur(0);
+  }
+  100% {
+    transform: translate3d(0, -8px, 0) scale(0.62);
+    opacity: 0;
+    filter: blur(8px);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Reduced motion
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .joey-intro-dog,
+  .joey-intro__ripple,
+  .joey-intro__ripple-glow,
+  .joey-intro__sweep {
+    display: none !important;
+  }
+
+  html.joey-intro-pending body > :not(#joey-intro):not(.skip-link) {
+    filter: none;
+    transform: none;
+  }
+
+  html.joey-intro-revealing body > :not(#joey-intro):not(.skip-link) {
+    transition-duration: 0.35s;
+    filter: none !important;
+  }
+
+  .joey-intro__logo {
+    opacity: 0;
+    transform: none;
+    filter: none;
+  }
+
+  .joey-intro.is-reduced .joey-intro__logo,
+  .joey-intro.is-revealing .joey-intro__logo {
+    opacity: 1;
+    transition: opacity 0.4s ease;
+  }
+
+  .joey-intro.is-revealing {
+    transition-duration: 0.35s;
+  }
+}
+
+@media (max-width: 560px) {
+  .joey-intro__stage {
+    height: min(48vh, 300px);
+  }
+
+  .joey-intro-dog {
+    width: min(78vw, 280px);
+  }
+}
