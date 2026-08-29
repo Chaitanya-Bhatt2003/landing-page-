@@ -14,20 +14,26 @@
  */
 window.JOEY_CONFIG = Object.assign(
   {
-    /** Where the product lives. All data-cta links are rewritten to it. */
+    /** Production app — signup, login, pricing, and other deep links. */
     appUrl: 'https://joey.ai',
 
-    /** Deep links into the app. Paths are resolved against appUrl. */
+    /** Same-origin base for on-site feature demos (chat, scanner, etc.). */
+    demoOrigin: typeof window !== 'undefined' ? window.location.origin.replace(/\/+$/, '') : '',
+
+    /** Deep links into the MeetJoy web app (or on-site demos). */
     paths: {
       signup: '/signup',
       login: '/login',
       pricing: '/pricing',
-      chat: '/dashboard/chat',
-      scanner: '/dashboard/scanner',
-      fitness: '/dashboard/fitness',
-      diet: '/dashboard/diet',
-      alerts: '/dashboard/alerts',
-      medical: '/dashboard/medical',
+      chat: '/demo/chat.html',
+      checkPet: '/demo/check-pet.html',
+      scanner: '/demo/scanner.html',
+      dailyWag: '/demo/daily-wag.html',
+      fitness: '/demo/daily-wag.html',
+      healthFile: '/demo/health-file.html',
+      medical: '/demo/health-file.html',
+      breedAlerts: '/demo/breed-alerts.html',
+      alerts: '/demo/breed-alerts.html',
     },
 
     /** Support inbox shown in the footer and legal pages. */

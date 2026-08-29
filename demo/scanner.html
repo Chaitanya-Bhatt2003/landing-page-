@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#EEF3EC" />
+  <meta name="robots" content="noindex" />
+
+  <title>Image Scanner — Demo | Joey AI</title>
+  <meta name="description" content="Try one free photo scan on Joey AI. Use a sample or your own photo, pick a scan type, and see triage and next steps — no signup required." />
+
+  <link rel="icon" href="../favicon.ico" sizes="32x32" />
+  <link rel="icon" href="../assets/joey-icon.svg" type="image/svg+xml" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,500&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../styles.css?v=demo-scanner-3" />
+  <link rel="stylesheet" href="demo-polish.css?v=1" />
+</head>
+<body class="demo-page">
+  <a class="skip-link" href="#main">Skip to scanner</a>
+
+  <header class="demo-header">
+    <div class="wrap demo-header__inner">
+      <a class="logo demo-header__logo" href="../index.html" aria-label="Joey AI — back to home">
+        <img src="../assets/joey-logo.svg" alt="Joey AI" width="8220" height="2863" />
+      </a>
+
+      <div class="demo-header__center">
+        <span class="demo-badge">Interactive demo</span>
+        <h1 class="demo-header__title">Image Scanner</h1>
+      </div>
+
+      <div class="demo-header__actions">
+        <a class="btn btn-secondary btn-sm" href="../index.html">← Back to site</a>
+        <a class="btn btn-primary btn-sm" href="https://joey.ai/signup" data-cta="signup">Start free</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="demo-main">
+    <div class="wrap demo-scanner-layout">
+      <aside class="demo-scanner-sidebar" data-demo-stagger aria-label="Scan types and demo info">
+        <div class="demo-panel demo-panel--quota">
+          <p class="demo-panel__label">Demo limit</p>
+          <p class="demo-quota" data-demo-quota>
+            <strong data-demo-quota-count>1</strong> free scan — no account needed
+          </p>
+          <p class="demo-quota-hint">Use a sample photo or take/upload one of your own. Your image stays in the browser and is never uploaded in this demo.</p>
+        </div>
+
+        <div class="demo-panel">
+          <p class="demo-panel__label">Scan type</p>
+          <div class="demo-scan-types" data-scan-types role="listbox" aria-label="Scan types">
+            <button type="button" class="demo-scan-type is-active" role="option" aria-selected="true" data-scan-type="skin">Skin &amp; coat</button>
+            <button type="button" class="demo-scan-type" role="option" data-scan-type="eye">Eyes</button>
+            <button type="button" class="demo-scan-type" role="option" data-scan-type="ear">Ears</button>
+            <button type="button" class="demo-scan-type" role="option" data-scan-type="wound">Wounds</button>
+            <button type="button" class="demo-scan-type" role="option" data-scan-type="dental">Dental</button>
+            <button type="button" class="demo-scan-type" role="option" data-scan-type="stool">Stool</button>
+          </div>
+        </div>
+
+        <div class="demo-panel">
+          <p class="demo-panel__label">Tips for a useful scan</p>
+          <ul class="demo-scan-tips">
+            <li>Good, even lighting</li>
+            <li>Close-up filling the frame</li>
+            <li>Hold the camera steady</li>
+          </ul>
+        </div>
+
+        <div class="demo-limit-banner" data-demo-limit hidden>
+          <p class="demo-limit-banner__title">Demo complete</p>
+          <p class="demo-limit-banner__text">You've used your one free scan. Start free in the app to scan with your camera and save results to your dog's record.</p>
+          <a class="btn btn-primary btn-sm" href="https://joey.ai/signup" data-cta="signup">Continue in Joey AI — free</a>
+        </div>
+
+        <p class="demo-disclaimer">
+          Demo analysis is scripted by scan type — not medical advice. Joey AI is not a licensed veterinarian.
+        </p>
+      </aside>
+
+      <section class="demo-scanner-stage" aria-label="Scanner demo">
+        <div class="demo-scanner-card">
+          <header class="demo-chat-card__head">
+            <div>
+              <p class="demo-chat-card__eyebrow">Joey Image Scanner</p>
+              <p class="demo-chat-card__sub" data-scan-subtitle>Skin &amp; coat — choose a sample or use your own photo.</p>
+            </div>
+            <span class="demo-live-dot" aria-hidden="true"></span>
+          </header>
+
+          <div class="demo-scanner-body">
+            <div class="demo-scanner-preview" data-scan-preview>
+              <div class="demo-scanner-source" data-scan-source-tabs role="tablist" aria-label="Photo source">
+                <button type="button" class="demo-scanner-source__btn is-active" role="tab" aria-selected="true" data-source="sample">Sample photo</button>
+                <button type="button" class="demo-scanner-source__btn" role="tab" aria-selected="false" data-source="custom">Your photo</button>
+              </div>
+
+              <figure class="demo-scanner-frame" data-scan-frame>
+                <div class="demo-scanner-adjust" data-scan-adjust hidden>
+                  <div class="demo-scanner-adjust__viewport" data-adjust-viewport>
+                    <img class="demo-scanner-adjust__img" data-adjust-image alt="" draggable="false" />
+                  </div>
+                  <span class="demo-scanner-adjust__hint">Drag to reposition · scroll to zoom</span>
+                </div>
+                <img class="demo-scanner-frame__preview" src="../assets/scan-dog.jpg" alt="" width="560" height="700" data-scan-image />
+                <span class="demo-scanner-frame__label" data-scan-label>Sample · Skin &amp; coat</span>
+              </figure>
+
+              <div class="demo-scanner-adjust-bar" data-adjust-bar hidden>
+                <p class="demo-scanner-adjust-bar__text" data-adjust-bar-text>Frame the area you want Joey to scan.</p>
+                <div class="demo-scanner-adjust-bar__actions">
+                  <button type="button" class="demo-scanner-zoom" data-adjust-zoom-out aria-label="Zoom out">−</button>
+                  <button type="button" class="demo-scanner-zoom" data-adjust-zoom-in aria-label="Zoom in">+</button>
+                  <button type="button" class="btn btn-primary btn-sm" data-adjust-confirm>Use this photo</button>
+                  <button type="button" class="btn btn-secondary btn-sm" data-adjust-cancel>Choose another</button>
+                </div>
+              </div>
+
+              <div class="demo-scanner-upload" data-scan-upload hidden>
+                <p class="demo-scanner-upload__hint">Take a close-up or upload from your gallery. One scan in this demo.</p>
+                <div class="demo-scanner-upload__actions">
+                  <button type="button" class="btn btn-primary btn-sm" data-scan-camera>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                    Take photo
+                  </button>
+                  <button type="button" class="btn btn-secondary btn-sm" data-scan-upload-btn>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    Upload photo
+                  </button>
+                </div>
+                <input
+                  type="file"
+                  class="sr-only"
+                  data-scan-file
+                  accept="image/*"
+                  capture="environment"
+                />
+                <input
+                  type="file"
+                  class="sr-only"
+                  data-scan-file-gallery
+                  accept="image/jpeg,image/png,image/webp,image/heic,image/heif"
+                />
+              </div>
+
+              <div class="demo-scanner-idle" data-scan-idle>
+                <p data-scan-idle-text>Select a scan type, then run your one free demo scan.</p>
+                <button type="button" class="btn btn-primary" data-scan-run disabled>Run demo scan</button>
+              </div>
+
+              <div class="demo-scanner-analyzing" data-scan-analyzing hidden>
+                <div class="demo-scanner-scanline" aria-hidden="true"></div>
+                <p>Joey is reading the image…</p>
+              </div>
+            </div>
+
+            <div class="demo-scanner-result" data-scan-result hidden>
+              <div class="demo-scanner-result__head">
+                <span class="demo-triage demo-triage--monitor" data-result-triage>monitor</span>
+                <span class="demo-scanner-confidence" data-result-confidence>87% match</span>
+              </div>
+              <h2 class="demo-scanner-result__title" data-result-summary>Reddened pinna with scaling at the edge</h2>
+              <p class="demo-scanner-result__lede" data-result-lede></p>
+
+              <div class="demo-scanner-result__block">
+                <p class="demo-scanner-result__label">What Joey sees</p>
+                <ul data-result-insights></ul>
+              </div>
+
+              <div class="demo-scanner-result__block">
+                <p class="demo-scanner-result__label">Suggested next steps</p>
+                <ul data-result-actions></ul>
+              </div>
+
+              <p class="demo-scanner-result__upgrade" data-result-upgrade hidden>
+                That's your free demo scan. <a href="https://joey.ai/signup" data-cta="signup">Start free in Joey AI</a> to scan with your camera and unlimited scans on Premium.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div class="demo-camera" data-camera-modal hidden>
+    <div class="demo-camera__backdrop" data-camera-close tabindex="-1" aria-hidden="true"></div>
+    <div class="demo-camera__dialog" role="dialog" aria-modal="true" aria-labelledby="camera-dialog-title">
+      <h2 id="camera-dialog-title" class="sr-only">Take a photo</h2>
+      <video class="demo-camera__video" data-camera-video autoplay playsinline muted></video>
+      <canvas class="demo-camera__canvas" data-camera-canvas hidden></canvas>
+      <p class="demo-camera__status" data-camera-status>Allow camera access to take a photo.</p>
+      <div class="demo-camera__actions">
+        <button type="button" class="btn btn-secondary btn-sm" data-camera-close>Cancel</button>
+        <button type="button" class="btn btn-primary btn-sm" data-camera-capture>Capture photo</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../config.js"></script>
+  <script src="demo-motion.js"></script>
+  <script src="scanner.js"></script>
+</body>
+</html>

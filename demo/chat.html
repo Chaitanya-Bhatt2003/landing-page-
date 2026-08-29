@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#EEF3EC" />
+  <meta name="robots" content="noindex" />
+
+  <title>AI Vet Chat — Demo | Joey AI</title>
+  <meta name="description" content="Try one free AI vet chat on Joey AI. Ask about your dog's symptoms and get triage in plain language — no signup required for this demo." />
+
+  <link rel="icon" href="../favicon.ico" sizes="32x32" />
+  <link rel="icon" href="../assets/joey-icon.svg" type="image/svg+xml" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,500&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../styles.css?v=demo-chat-3" />
+  <link rel="stylesheet" href="demo-polish.css?v=1" />
+</head>
+<body class="demo-page">
+  <a class="skip-link" href="#main">Skip to chat</a>
+
+  <header class="demo-header" data-demo-header>
+    <div class="wrap demo-header__inner">
+      <a class="logo demo-header__logo" href="../index.html" aria-label="Joey AI — back to home">
+        <img src="../assets/joey-logo.svg" alt="Joey AI" width="8220" height="2863" />
+      </a>
+
+      <div class="demo-header__center">
+        <span class="demo-badge">Interactive demo</span>
+        <h1 class="demo-header__title">AI Vet Chat</h1>
+      </div>
+
+      <div class="demo-header__actions">
+        <a class="btn btn-secondary btn-sm" href="../index.html">← Back to site</a>
+        <a class="btn btn-primary btn-sm" href="https://joey.ai/signup" data-cta="signup">Start free</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="demo-main">
+    <div class="wrap demo-chat-layout">
+      <aside class="demo-chat-sidebar" data-demo-stagger aria-label="Demo info and suggestions">
+        <div class="demo-panel demo-panel--quota">
+          <p class="demo-panel__label">Demo limit</p>
+          <p class="demo-quota" data-demo-quota>
+            <strong data-demo-quota-count>1</strong> free message — no account needed
+          </p>
+          <p class="demo-quota-hint">The full app saves your dog's profile, chat history, and unlimited daily chats on Premium.</p>
+        </div>
+
+        <div class="demo-panel">
+          <p class="demo-panel__label">Try asking</p>
+          <div class="demo-prompts" data-demo-prompts>
+            <button type="button" class="demo-prompt" data-prompt="My dog vomited twice and skipped dinner">My dog vomited twice and skipped dinner</button>
+            <button type="button" class="demo-prompt" data-prompt="Is this ear redness an emergency?">Is this ear redness an emergency?</button>
+            <button type="button" class="demo-prompt" data-prompt="What should I watch overnight?">What should I watch overnight?</button>
+            <button type="button" class="demo-prompt" data-prompt="Can dogs have plain rice after vomiting?">Can dogs have plain rice after vomiting?</button>
+          </div>
+        </div>
+
+        <div class="demo-limit-banner" data-demo-limit hidden>
+          <p class="demo-limit-banner__title">Demo complete</p>
+          <p class="demo-limit-banner__text">You've used your one free message. Start free in the app for unlimited chats, your dog's health record, and photo scans.</p>
+          <a class="btn btn-primary btn-sm" href="https://joey.ai/signup" data-cta="signup">Continue in Joey AI — free</a>
+        </div>
+
+        <p class="demo-disclaimer">
+          Scripted demo — not medical advice. Joey AI is not a licensed veterinarian.
+        </p>
+      </aside>
+
+      <section class="demo-chat-stage" aria-label="Chat conversation">
+        <div class="demo-chat-card">
+          <header class="demo-chat-card__head">
+            <div>
+              <p class="demo-chat-card__eyebrow">Joey AI Vet</p>
+              <p class="demo-chat-card__sub">Triage in plain language. The full app remembers breed, weight, meds, and history.</p>
+            </div>
+            <span class="demo-live-dot" aria-hidden="true"></span>
+          </header>
+
+          <div class="demo-chat-messages" data-demo-messages role="log" aria-live="polite" aria-relevant="additions">
+            <!-- messages injected by chat.js -->
+          </div>
+
+          <div class="demo-compose-limit" data-demo-compose-limit hidden>
+            <p>That's your free demo message. <a href="https://joey.ai/signup" data-cta="signup">Start free in the app</a> to keep chatting.</p>
+          </div>
+
+          <footer class="demo-chat-compose" data-demo-compose>
+            <form class="demo-chat-form" data-demo-form>
+              <div class="demo-chat-tools" aria-label="Attachments">
+                <button type="button" class="demo-chat-tool" tabindex="-1" aria-label="Attach file" disabled>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <button type="button" class="demo-chat-tool" tabindex="-1" aria-label="Add photo" disabled>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+              </div>
+
+              <button
+                type="button"
+                class="demo-chat-mic"
+                data-demo-mic
+                aria-label="Dictate your message"
+                aria-pressed="false"
+                title="Speak your message"
+                hidden
+              >
+                <svg class="demo-chat-mic__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M12 1a3 3 0 00-3 3v7a3 3 0 006 0V4a3 3 0 00-3-3z" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M19 10v1a7 7 0 01-14 0v-1M12 18v4M8 22h8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="demo-chat-mic__pulse" aria-hidden="true"></span>
+              </button>
+
+              <label class="sr-only" for="demo-chat-input">Message Joey</label>
+              <textarea
+                id="demo-chat-input"
+                class="demo-chat-input"
+                data-demo-input
+                rows="1"
+                placeholder="Ask about symptoms, diet, or what to tell your vet…"
+                autocomplete="off"
+              ></textarea>
+
+              <button type="submit" class="demo-chat-send" data-demo-send aria-label="Send message">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 19V5"/>
+                  <path d="M5 12l7-7 7 7"/>
+                </svg>
+              </button>
+            </form>
+            <p class="demo-chat-voice-error" data-demo-voice-error role="alert" hidden></p>
+          </footer>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="../config.js"></script>
+  <script src="demo-motion.js"></script>
+  <script src="chat.js"></script>
+</body>
+</html>

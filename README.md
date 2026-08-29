@@ -14,11 +14,24 @@ joey-landing/
 ├── styles.css          Design system + all page styles
 ├── app.js              Nav, FAQ, food checker, analytics
 ├── config.js           URLs and analytics ids — edit this, not the markup
+├── demo/               Interactive, on-site feature demos
+│   ├── chat.html       AI vet chat
+│   ├── check-pet.html  Symptom / food checker
+│   ├── scanner.html    Image scanner
+│   ├── daily-wag.html  Daily Wag health score
+│   ├── health-file.html  Records & vaccines
+│   ├── breed-alerts.html Breed-specific alerts
+│   ├── demo-polish.css   Shared motion & polish for all demos
+│   └── demo-motion.js    Shared enter/stagger helpers
 ├── robots.txt
 ├── sitemap.xml
 ├── site.webmanifest
 └── assets/             Logo + optimised images (WebP with JPEG fallbacks)
 ```
+
+The demos are self-contained: each page pulls the shared `styles.css` and `config.js`
+from the site root and runs its own script. They are illustrative only — the real work
+happens in the app, and every demo ends in a CTA that says so.
 
 ## Local preview
 
@@ -39,12 +52,18 @@ and `localStorage` behaves differently — prefer a server.
 
 ```js
 window.JOEY_CONFIG = {
-  appUrl: 'https://joey.ai',    // where every CTA points
+  appUrl: 'https://joey.ai',    // where product CTAs point
+  demoOrigin: window.location.origin,  // where demo CTAs point (this site)
   supportEmail: 'support@joey.ai',
   gaId: '',                     // empty = no script loaded, no request made
   clarityId: '',
 };
 ```
+
+`paths` maps each `data-cta` key to a destination. Demo keys (`chat`, `checkPet`,
+`scanner`, `dailyWag`/`fitness`, `healthFile`/`medical`, `breedAlerts`/`alerts`) resolve
+against `demoOrigin` so they stay on this site; everything else resolves against
+`appUrl`.
 
 Every CTA in the HTML ships with a real `href`, so the page still converts with JS
 disabled. `app.js` rewrites any element carrying `data-cta` to `appUrl + paths[key]`,

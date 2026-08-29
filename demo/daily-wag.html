@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#EEF3EC" />
+  <meta name="robots" content="noindex" />
+
+  <title>Daily Wag — Demo | Joey AI</title>
+  <meta name="description" content="Try one free Daily Wag check-in. Log appetite, energy, activity, and stool in under a minute and see your dog's weekly health score — no signup required." />
+
+  <link rel="icon" href="../favicon.ico" sizes="32x32" />
+  <link rel="icon" href="../assets/joey-icon.svg" type="image/svg+xml" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,500;1,8..60,600&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../styles.css?v=daily-wag-1" />
+  <link rel="stylesheet" href="demo-polish.css?v=1" />
+</head>
+<body class="demo-page demo-flow-page demo-wag-page">
+  <a class="skip-link" href="#main">Skip to Daily Wag</a>
+
+  <header class="demo-header">
+    <div class="wrap demo-header__inner">
+      <a class="logo demo-header__logo" href="../index.html" aria-label="Joey AI — back to home">
+        <img src="../assets/joey-logo.svg" alt="Joey AI" width="8220" height="2863" />
+      </a>
+
+      <div class="demo-header__center">
+        <span class="demo-badge">Interactive demo</span>
+        <h1 class="demo-header__title">Daily Wag</h1>
+      </div>
+
+      <div class="demo-header__actions">
+        <a class="btn btn-secondary btn-sm" href="../index.html">← Back to site</a>
+        <a class="btn btn-primary btn-sm" href="https://joey.ai/signup" data-cta="signup">Start free</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="demo-main demo-flow-main">
+    <div class="wrap">
+      <div class="flow-shell flow-shell--wag">
+        <div class="flow-progress flow-progress--wag" data-flow-progress aria-hidden="true">
+          <span class="flow-progress__seg" data-progress-seg="1"></span>
+          <span class="flow-progress__seg" data-progress-seg="2"></span>
+          <span class="flow-progress__seg" data-progress-seg="3"></span>
+          <span class="flow-progress__seg" data-progress-seg="4"></span>
+          <span class="flow-progress__seg" data-progress-seg="5"></span>
+        </div>
+
+        <div class="flow-body" data-flow>
+          <!-- Intro -->
+          <section class="flow-panel is-active" data-flow-step="intro" aria-labelledby="wag-intro-title">
+            <div class="flow-intro">
+              <p class="eyebrow">One-minute check-in · no sign-up</p>
+              <h2 id="wag-intro-title" class="flow-title">Daily Wag</h2>
+              <p class="flow-subtitle"><em>A weekly health picture from four quick logs.</em></p>
+              <p class="flow-lede">
+                Log appetite, energy, activity, and stool in under a minute. Joey turns the week into a
+                score and flags the drift you'd otherwise miss — the quiet Tuesday, the soft stool, the
+                energy dip after a long walk.
+              </p>
+              <button type="button" class="btn btn-primary btn-lg flow-start" data-flow-next>
+                Log today's check-in
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+              </button>
+              <p class="flow-trust">
+                <span class="flow-stars" aria-hidden="true">★★★★★</span>
+                Free on every plan — one demo check-in, no account needed.
+              </p>
+              <p class="flow-fine">
+                Demo only. Scores are illustrative, not medical advice. Joey AI is not a licensed veterinarian.
+              </p>
+            </div>
+          </section>
+
+          <!-- Appetite -->
+          <section class="flow-panel" data-flow-step="appetite" hidden aria-labelledby="wag-appetite-title">
+            <button type="button" class="flow-back text-link" data-flow-back>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+              Back
+            </button>
+            <p class="demo-wag-step-label">1 of 4</p>
+            <h2 id="wag-appetite-title" class="flow-step-title">How was appetite today?</h2>
+            <p class="flow-step-hint">Pick the closest match for both meals.</p>
+
+            <div class="demo-wag-options" data-wag-pick-group="appetite" data-demo-stagger>
+              <button type="button" class="demo-wag-option" data-wag-pick data-value="refused">
+                <span class="demo-wag-option__emoji" aria-hidden="true">🚫</span>
+                <span class="demo-wag-option__label">Refused food</span>
+              </button>
+              <button type="button" class="demo-wag-option" data-wag-pick data-value="less">
+                <span class="demo-wag-option__emoji" aria-hidden="true">🥄</span>
+                <span class="demo-wag-option__label">Less than usual</span>
+              </button>
+              <button type="button" class="demo-wag-option" data-wag-pick data-value="normal">
+                <span class="demo-wag-option__emoji" aria-hidden="true">🍽️</span>
+                <span class="demo-wag-option__label">Normal</span>
+              </button>
+              <button type="button" class="demo-wag-option" data-wag-pick data-value="more">
+                <span class="demo-wag-option__emoji" aria-hidden="true">🍖</span>
+                <span class="demo-wag-option__label">More than usual</span>
+              </button>
+            </div>
+          </section>
+
+          <!-- Energy -->
+          <section class="flow-panel" data-flow-step="energy" hidden aria-labelledby="wag-energy-title">
+            <button type="button" class="flow-back text-link" data-flow-back>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+              Back
+            </button>
+            <p class="demo-wag-step-label">2 of 4</p>
+            <h2 id="wag-energy-title" class="flow-step-title">Energy level today?</h2>
+            <p class="flow-step-hint">How peppy did your dog feel overall?</p>
+
+            <div class="demo-wag-scale" data-wag-pick-group="energy" data-demo-stagger role="group" aria-label="Energy level 1 to 5">
+              <button type="button" class="demo-wag-scale__btn" data-wag-pick data-value="1">1<span>Lethargic</span></button>
+              <button type="button" class="demo-wag-scale__btn" data-wag-pick data-value="2">2<span>Low</span></button>
+              <button type="button" class="demo-wag-scale__btn" data-wag-pick data-value="3">3<span>Normal</span></button>
+              <button type="button" class="demo-wag-scale__btn" data-wag-pick data-value="4">4<span>Playful</span></button>
+              <button type="button" class="demo-wag-scale__btn" data-wag-pick data-value="5">5<span>Bouncy</span></button>
+            </div>
+          </section>
+
+          <!-- Activity -->
+          <section class="flow-panel" data-flow-step="activity" hidden aria-labelledby="wag-activity-title">
+            <button type="button" class="flow-back text-link" data-flow-back>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+              Back
+            </button>
+            <p class="demo-wag-step-label">3 of 4</p>
+            <h2 id="wag-activity-title" class="flow-step-title">How active were they?</h2>
+            <p class="flow-step-hint">Walks, play, and training all count.</p>
+
+            <div class="demo-wag-options demo-wag-options--compact" data-wag-pick-group="activity" data-demo-stagger>
+              <button type="button" class="demo-wag-option" data-wag-pick data-value="rest">
+                <span class="demo-wag-option__emoji" aria-hidden="true">😴</span>
+                <span class="demo-wag-option__label">Mostly resting</span>
+              </button>
+              <button type="button" class="demo-wag-option" data-wag-pick data-value="short">
+                <span class="demo-wag-option__emoji" aria-hidden="true">🐾</span>
+                <span class="demo-wag-option__label">Short walk</span>
+              </button>
+              <button type="button" class="demo-wag-option" data-wag-pick data-value="good">
+                <span class="demo-wag-option__emoji" aria-hidden="true">🦮</span>
+                <span class="demo-wag-option__label">Good walk</span>
+              </button>
+              <button type="button" class="demo-wag-option" data-wag-pick data-value="high">
+                <span class="demo-wag-option__emoji" aria-hidden="true">⚡</span>
+                <span class="demo-wag-option__label">Very active</span>
+              </button>
+            </div>
+          </section>
+
+          <!-- Stool -->
+          <section class="flow-panel" data-flow-step="stool" hidden aria-labelledby="wag-stool-title">
+            <button type="button" class="flow-back text-link" data-flow-back>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+              Back
+            </button>
+            <p class="demo-wag-step-label">4 of 4</p>
+            <h2 id="wag-stool-title" class="flow-step-title">Stool quality today?</h2>
+            <p class="flow-step-hint">Ideal is firm and smooth. Persistent changes are worth a vet look.</p>
+
+            <div class="demo-wag-options" data-wag-pick-group="stool" data-demo-stagger>
+              <button type="button" class="demo-wag-option" data-wag-pick data-value="normal">
+                <span class="demo-wag-option__emoji" aria-hidden="true">✓</span>
+                <span class="demo-wag-option__label">Normal · smooth</span>
+              </button>
+              <button type="button" class="demo-wag-option" data-wag-pick data-value="soft">
+                <span class="demo-wag-option__emoji" aria-hidden="true">~</span>
+                <span class="demo-wag-option__label">A bit soft</span>
+              </button>
+              <button type="button" class="demo-wag-option" data-wag-pick data-value="loose">
+                <span class="demo-wag-option__emoji" aria-hidden="true">!</span>
+                <span class="demo-wag-option__label">Loose / diarrhoea</span>
+              </button>
+              <button type="button" class="demo-wag-option" data-wag-pick data-value="hard">
+                <span class="demo-wag-option__emoji" aria-hidden="true">▪</span>
+                <span class="demo-wag-option__label">Hard / constipated</span>
+              </button>
+            </div>
+          </section>
+
+          <!-- Result -->
+          <section class="flow-panel" data-flow-step="result" hidden aria-labelledby="wag-result-title">
+            <div class="demo-wag-result" data-wag-result>
+              <p class="eyebrow">Your demo score</p>
+              <h2 id="wag-result-title" class="flow-title flow-title--sm">Here's today's Daily Wag</h2>
+              <p class="demo-wag-result__lede" data-wag-insight></p>
+
+              <div class="metrics demo-wag-metrics" role="group" aria-label="Daily Wag summary">
+                <div class="metric-card metric-hero">
+                  <div class="metric-hero-copy">
+                    <span class="metric-label">Daily Wag</span>
+                    <span class="metric-value" data-wag-score>—</span>
+                    <span class="metric-hint" data-wag-score-hint>Your dog · demo check-in</span>
+                    <span class="metric-chip metric-chip--good" data-wag-chip>On track</span>
+                  </div>
+                  <div class="metric-ring-wrap" aria-hidden="true">
+                    <svg class="ring" viewBox="0 0 120 120">
+                      <defs>
+                        <linearGradient id="wag-ring-demo" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stop-color="#3E6B4C" />
+                          <stop offset="55%" stop-color="#2F6A4A" />
+                          <stop offset="100%" stop-color="#C1633F" />
+                        </linearGradient>
+                      </defs>
+                      <circle cx="60" cy="60" r="50" class="ring-track" />
+                      <circle cx="60" cy="60" r="50" class="ring-fill" pathLength="100" data-wag-ring />
+                    </svg>
+                    <span class="metric-ring-label" data-wag-ring-label>—</span>
+                  </div>
+                </div>
+
+                <div class="metric-card metric-appetite">
+                  <span class="metric-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c2.5 3.5 4 6.2 4 9a4 4 0 1 1-8 0c0-2.8 1.5-5.5 4-9z" /><path d="M9.5 14.5c.8 1.4 2 2.2 2.5 3.5" /></svg>
+                  </span>
+                  <span class="metric-label">Appetite</span>
+                  <span class="metric-value metric-sm" data-wag-metric="appetite">—</span>
+                  <span class="metric-hint" data-wag-hint="appetite"></span>
+                </div>
+
+                <div class="metric-card metric-walks">
+                  <span class="metric-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 4a2 2 0 1 1-4 0 2 2 0 0 1 4 0z" /><path d="M8 22l2.2-6.2L8 13l3-4 3.5 2.5L18 10" /><path d="M12 22l1-5 3 1 2 4" /></svg>
+                  </span>
+                  <span class="metric-label">Activity</span>
+                  <span class="metric-value metric-sm" data-wag-metric="activity">—</span>
+                  <span class="metric-hint" data-wag-hint="activity"></span>
+                </div>
+
+                <div class="metric-card metric-energy">
+                  <span class="metric-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 10-14h-7l0-6z" /></svg>
+                  </span>
+                  <span class="metric-label">Energy</span>
+                  <span class="metric-value metric-sm" data-wag-metric="energy">—</span>
+                  <span class="metric-hint" data-wag-hint="energy"></span>
+                  <div class="metric-bars" aria-hidden="true" data-wag-energy-bars>
+                    <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="demo-wag-watch" data-wag-watch hidden>
+                <p class="demo-wag-watch__label">Joey would flag</p>
+                <ul data-wag-watch-list></ul>
+              </div>
+
+              <div class="demo-limit-banner demo-limit-banner--inline" data-demo-limit hidden>
+                <p class="demo-limit-banner__title">Demo complete</p>
+                <p class="demo-limit-banner__text">You've used your one free check-in. Start free in the app to log daily, track trends, and get AI briefs.</p>
+              </div>
+
+              <div class="flow-result__cta">
+                <a class="btn btn-primary btn-lg flow-start flow-start--full" href="https://joey.ai/signup" data-cta="signup">
+                  Continue in Joey AI — free
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                </a>
+                <a class="text-link flow-link-secondary" href="check-pet.html">Or try the symptom checker demo</a>
+                <button type="button" class="text-link flow-link-secondary flow-link-secondary--btn" data-flow-restart hidden>Start over</button>
+              </div>
+
+              <p class="flow-fine">
+                Demo only — not medical advice. Persistent appetite, stool, or energy changes deserve a vet conversation.
+              </p>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="../config.js"></script>
+  <script src="demo-motion.js"></script>
+  <script src="daily-wag.js"></script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#EEF3EC" />
+  <meta name="robots" content="noindex" />
+
+  <title>Health File — Demo | Joey AI</title>
+  <meta name="description" content="Try Joey AI's health file demo. Browse sample vaccines, medications, and vet records — then preview a clinic-ready summary. No signup required." />
+
+  <link rel="icon" href="../favicon.ico" sizes="32x32" />
+  <link rel="icon" href="../assets/joey-icon.svg" type="image/svg+xml" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,500&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../styles.css?v=demo-health-1" />
+  <link rel="stylesheet" href="demo-polish.css?v=1" />
+</head>
+<body class="demo-page">
+  <a class="skip-link" href="#main">Skip to health file</a>
+
+  <header class="demo-header">
+    <div class="wrap demo-header__inner">
+      <a class="logo demo-header__logo" href="../index.html" aria-label="Joey AI — back to home">
+        <img src="../assets/joey-logo.svg" alt="Joey AI" width="8220" height="2863" />
+      </a>
+
+      <div class="demo-header__center">
+        <span class="demo-badge">Interactive demo</span>
+        <h1 class="demo-header__title">Health File</h1>
+      </div>
+
+      <div class="demo-header__actions">
+        <a class="btn btn-secondary btn-sm" href="../index.html">← Back to site</a>
+        <a class="btn btn-primary btn-sm" href="https://joey.ai/signup" data-cta="signup">Start free</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="demo-main">
+    <div class="wrap demo-hub-layout">
+      <aside class="demo-hub-sidebar" data-demo-stagger aria-label="Health file filters and demo info">
+        <div class="demo-panel demo-panel--quota">
+          <p class="demo-panel__label">Demo limit</p>
+          <p class="demo-quota" data-demo-quota>
+            <strong>1</strong> free record view — no account needed
+          </p>
+          <p class="demo-quota-hint">Browse the sample timeline freely. Open one record or preview a vet summary — then continue in the app to upload your own files.</p>
+        </div>
+
+        <div class="demo-panel">
+          <p class="demo-panel__label">Filter records</p>
+          <div class="demo-hub-tabs" data-health-tabs role="tablist" aria-label="Record types">
+            <button type="button" class="demo-hub-tab is-active" role="tab" aria-selected="true" data-health-filter="all">All</button>
+            <button type="button" class="demo-hub-tab" role="tab" aria-selected="false" data-health-filter="vaccine">Vaccines</button>
+            <button type="button" class="demo-hub-tab" role="tab" aria-selected="false" data-health-filter="medication">Medications</button>
+            <button type="button" class="demo-hub-tab" role="tab" aria-selected="false" data-health-filter="vet-visit">Vet visits</button>
+            <button type="button" class="demo-hub-tab" role="tab" aria-selected="false" data-health-filter="lab-result">Labs</button>
+          </div>
+        </div>
+
+        <div class="demo-panel">
+          <p class="demo-panel__label">For your next appointment</p>
+          <button type="button" class="btn btn-secondary btn-sm demo-hub-action" data-health-share>
+            Preview vet summary
+          </button>
+          <p class="demo-quota-hint">One-page share link the clinic can open — no printing binders.</p>
+        </div>
+
+        <div class="demo-limit-banner" data-demo-limit hidden>
+          <p class="demo-limit-banner__title">Demo complete</p>
+          <p class="demo-limit-banner__text">You've used your one free view. Start free in the app to upload records, set reminders, and share with your vet.</p>
+          <a class="btn btn-primary btn-sm" href="https://joey.ai/signup" data-cta="signup">Continue in Joey AI — free</a>
+        </div>
+
+        <p class="demo-disclaimer">
+          Sample records only — not your dog's file. Joey AI is not a licensed veterinarian.
+        </p>
+      </aside>
+
+      <section class="demo-hub-stage" aria-label="Health file timeline">
+        <div class="demo-hub-card">
+          <header class="demo-chat-card__head">
+            <div>
+              <p class="demo-chat-card__eyebrow">Joey Health File</p>
+              <p class="demo-chat-card__sub" data-health-subtitle>Sample timeline — vaccines, meds, visits, and labs in one place.</p>
+            </div>
+            <span class="demo-live-dot" aria-hidden="true"></span>
+          </header>
+
+          <div class="demo-health-body">
+            <ul class="demo-health-timeline" data-health-timeline role="list"></ul>
+
+            <div class="demo-health-empty" data-health-empty hidden>
+              <p>No records in this filter.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <dialog class="demo-modal" data-health-detail aria-labelledby="health-detail-title">
+    <div class="demo-modal__sheet">
+      <button type="button" class="demo-modal__close" data-health-detail-close aria-label="Close record">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <p class="demo-modal__eyebrow" data-health-detail-type></p>
+      <h2 id="health-detail-title" class="demo-modal__title" data-health-detail-title></h2>
+      <p class="demo-modal__meta" data-health-detail-date></p>
+      <div class="demo-health-detail" data-health-detail-body></div>
+    </div>
+  </dialog>
+
+  <dialog class="demo-modal demo-modal--wide" data-health-share-modal aria-labelledby="health-share-title">
+    <div class="demo-modal__sheet">
+      <button type="button" class="demo-modal__close" data-health-share-close aria-label="Close preview">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <p class="demo-modal__eyebrow">Share preview</p>
+      <h2 id="health-share-title" class="demo-modal__title">Clinic-ready summary</h2>
+      <div class="demo-health-share" data-health-share-body></div>
+      <a class="btn btn-primary btn-sm" href="https://joey.ai/signup" data-cta="signup">Create your health file — free</a>
+    </div>
+  </dialog>
+
+  <script src="../config.js"></script>
+  <script src="demo-motion.js"></script>
+  <script src="health-file.js"></script>
+</body>
+</html>

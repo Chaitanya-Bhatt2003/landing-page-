@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#EEF3EC" />
+  <meta name="robots" content="noindex" />
+
+  <title>Dog Symptom Checker — Demo | Joey AI</title>
+  <meta name="description" content="Free vet-reviewed dog symptom checker demo. Answer a few questions and get a triage level in under a minute — no signup required." />
+
+  <link rel="icon" href="../favicon.ico" sizes="32x32" />
+  <link rel="icon" href="../assets/joey-icon.svg" type="image/svg+xml" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,500;1,8..60,600&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../styles.css?v=check-pet-2" />
+  <link rel="stylesheet" href="demo-polish.css?v=1" />
+</head>
+<body class="demo-page demo-flow-page">
+  <a class="skip-link" href="#main">Skip to checker</a>
+
+  <header class="demo-header">
+    <div class="wrap demo-header__inner">
+      <a class="logo demo-header__logo" href="../index.html" aria-label="Joey AI — back to home">
+        <img src="../assets/joey-logo.svg" alt="Joey AI" width="8220" height="2863" />
+      </a>
+
+      <div class="demo-header__center">
+        <span class="demo-badge">Interactive demo</span>
+        <h1 class="demo-header__title">Check your pet</h1>
+      </div>
+
+      <div class="demo-header__actions">
+        <a class="btn btn-secondary btn-sm" href="../index.html">← Back to site</a>
+        <a class="btn btn-primary btn-sm" href="https://joey.ai/signup" data-cta="signup">Start free</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="demo-main demo-flow-main">
+    <div class="wrap">
+      <div class="flow-shell">
+        <div class="flow-progress" data-flow-progress aria-hidden="true">
+          <span class="flow-progress__seg" data-progress-seg="1"></span>
+          <span class="flow-progress__seg" data-progress-seg="2"></span>
+          <span class="flow-progress__seg" data-progress-seg="3"></span>
+          <span class="flow-progress__seg" data-progress-seg="4"></span>
+        </div>
+
+        <div class="flow-body" data-flow>
+          <!-- Step 1 — Intro -->
+          <section class="flow-panel is-active" data-flow-step="intro" aria-labelledby="flow-intro-title">
+            <div class="flow-intro">
+              <p class="eyebrow">Free, vet-reviewed, no sign-up</p>
+              <h2 id="flow-intro-title" class="flow-title">Dog Symptom Checker</h2>
+              <p class="flow-subtitle"><em>Something off with your dog? A clear answer in under a minute.</em></p>
+              <p class="flow-lede">
+                Joey's checker is built for dog owners — not generic pet articles. Answer a few quick questions and
+                get a triage level, what to watch tonight, and when to call your vet. This is a demo; the full app
+                remembers Bruno's breed, weight, and history.
+              </p>
+              <button type="button" class="btn btn-primary btn-lg flow-start" data-flow-next>
+                Start, Free, 1 minute
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+              </button>
+              <p class="flow-trust">
+                <span class="flow-stars" aria-hidden="true">★★★★★</span>
+                Free, vet-reviewed triage in under a minute — any time.
+              </p>
+              <p class="flow-fine">
+                This demo uses general veterinary triage principles. It is not a diagnosis and does not replace
+                an examination by a licensed veterinarian. In an emergency, call your nearest emergency vet immediately.
+              </p>
+            </div>
+          </section>
+
+          <!-- Step 2 — Symptom -->
+          <section class="flow-panel" data-flow-step="symptom" hidden aria-labelledby="flow-symptom-title">
+            <button type="button" class="flow-back text-link" data-flow-back>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+              Back
+            </button>
+            <h2 id="flow-symptom-title" class="flow-step-title">What did you notice first?</h2>
+            <p class="flow-step-hint">Pick the one that worried you most.</p>
+
+            <div class="flow-grid" role="listbox" aria-label="Symptoms" data-symptom-grid data-demo-stagger>
+              <button type="button" class="flow-card" role="option" data-symptom="vomiting" data-flow-pick>
+                <span class="flow-card__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3c-2 4-6 5-6 10a6 6 0 1012 0c0-5-4-6-6-10z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <span class="flow-card__label">Vomiting</span>
+              </button>
+              <button type="button" class="flow-card" role="option" data-symptom="not-eating" data-flow-pick>
+                <span class="flow-card__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="12" cy="14" rx="7" ry="4"/><path d="M5 14v2a7 4 0 0014 0v-2M8 10c0-2 1.8-3 4-3s4 1 4 3" stroke-linecap="round"/></svg>
+                </span>
+                <span class="flow-card__label">Not eating</span>
+              </button>
+              <button type="button" class="flow-card" role="option" data-symptom="low-energy" data-flow-pick>
+                <span class="flow-card__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.8A9 9 0 1111.2 3" stroke-linecap="round"/><path d="M12 7v5l3 2" stroke-linecap="round"/></svg>
+                </span>
+                <span class="flow-card__label">Low energy</span>
+              </button>
+              <button type="button" class="flow-card" role="option" data-symptom="limping" data-flow-pick>
+                <span class="flow-card__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="8.5" cy="7" rx="2" ry="2.5"/><ellipse cx="13" cy="5" rx="2" ry="2.5"/><ellipse cx="17" cy="7.5" rx="2" ry="2.5"/><path d="M6 18l3-6 4 2 5-4 3 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <span class="flow-card__label">Limping</span>
+              </button>
+              <button type="button" class="flow-card" role="option" data-symptom="coughing" data-flow-pick>
+                <span class="flow-card__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 10h4l2-3 2 6 2-4h6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <span class="flow-card__label">Coughing</span>
+              </button>
+              <button type="button" class="flow-card" role="option" data-symptom="blood" data-flow-pick>
+                <span class="flow-card__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 9v4M12 17h.01" stroke-linecap="round"/><path d="M10.3 4.3l-7 12.1A2 2 0 005 19h14a2 2 0 001.7-2.6l-7-12.1a2 2 0 00-3.4 0z" stroke-linejoin="round"/></svg>
+                </span>
+                <span class="flow-card__label">Blood, anywhere</span>
+              </button>
+              <button type="button" class="flow-card" role="option" data-symptom="bathroom" data-flow-pick>
+                <span class="flow-card__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7h6M9 11h6" stroke-linecap="round"/></svg>
+                </span>
+                <span class="flow-card__label">Bathroom problems</span>
+              </button>
+              <button type="button" class="flow-card" role="option" data-symptom="acting-off" data-flow-pick>
+                <span class="flow-card__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10" r="1" fill="currentColor"/><circle cx="15" cy="10" r="1" fill="currentColor"/><path d="M9 15s1.5 2 3 2 3-2 3-2" stroke-linecap="round"/></svg>
+                </span>
+                <span class="flow-card__label">Acting off</span>
+              </button>
+            </div>
+          </section>
+
+          <!-- Step 3 — Duration -->
+          <section class="flow-panel" data-flow-step="duration" hidden aria-labelledby="flow-duration-title">
+            <button type="button" class="flow-back text-link" data-flow-back>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+              Back
+            </button>
+            <h2 id="flow-duration-title" class="flow-step-title">How long has this been going on?</h2>
+            <p class="flow-step-hint">Rough is fine — pick what feels closest.</p>
+
+            <div class="flow-options" data-duration-options data-demo-stagger>
+              <button type="button" class="flow-option" data-duration="just-started" data-flow-pick>Just started (under an hour)</button>
+              <button type="button" class="flow-option" data-duration="few-hours" data-flow-pick>A few hours</button>
+              <button type="button" class="flow-option" data-duration="since-yesterday" data-flow-pick>Since yesterday</button>
+              <button type="button" class="flow-option" data-duration="multi-day" data-flow-pick>More than 2 days</button>
+            </div>
+          </section>
+
+          <!-- Step 4 — Context -->
+          <section class="flow-panel" data-flow-step="context" hidden aria-labelledby="flow-context-title">
+            <button type="button" class="flow-back text-link" data-flow-back>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+              Back
+            </button>
+            <h2 id="flow-context-title" class="flow-step-title" data-context-title>Is your dog still drinking water?</h2>
+            <p class="flow-step-hint" data-context-hint>This helps Joey judge how urgent tonight is.</p>
+
+            <div class="flow-options" data-context-options data-demo-stagger>
+              <button type="button" class="flow-option" data-context="yes-normal" data-flow-pick>Yes, normal</button>
+              <button type="button" class="flow-option" data-context="less-than-usual" data-flow-pick>Less than usual</button>
+              <button type="button" class="flow-option" data-context="not-at-all" data-flow-pick>Not at all</button>
+              <button type="button" class="flow-option" data-context="not-sure" data-flow-pick>Not sure</button>
+            </div>
+          </section>
+
+          <!-- Step 5 — Result -->
+          <section class="flow-panel" data-flow-step="result" hidden aria-labelledby="flow-result-title">
+            <div class="flow-result" data-flow-result>
+              <p class="eyebrow">Your demo result</p>
+              <h2 id="flow-result-title" class="flow-title flow-title--sm">Here's what Joey would tell you tonight</h2>
+
+              <div class="flow-result__card">
+                <span class="demo-triage" data-result-triage>monitor</span>
+                <p class="flow-result__headline" data-result-headline></p>
+                <p class="flow-result__body" data-result-body></p>
+
+                <div class="flow-result__watch">
+                  <p class="flow-result__watch-label">Watch for</p>
+                  <ul data-result-watch></ul>
+                </div>
+
+                <div class="flow-result__next">
+                  <p class="flow-result__watch-label">What to do now</p>
+                  <ul data-result-actions></ul>
+                </div>
+              </div>
+
+              <div class="flow-result__cta">
+                <a class="btn btn-primary btn-lg flow-start flow-start--full" href="https://joey.ai/signup" data-cta="signup">
+                  Continue in Joey AI — free
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                </a>
+                <a class="text-link flow-link-secondary" href="chat.html">Or try the AI vet chat demo</a>
+                <button type="button" class="text-link flow-link-secondary flow-link-secondary--btn" data-flow-restart>Start over</button>
+              </div>
+
+              <p class="flow-fine">
+                Demo only — not medical advice. Joey AI is not a licensed veterinarian. Always confirm with a qualified vet.
+              </p>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="../config.js"></script>
+  <script src="demo-motion.js"></script>
+  <script src="check-pet.js"></script>
+</body>
+</html>

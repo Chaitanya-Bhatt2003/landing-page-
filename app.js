@@ -32,9 +32,14 @@
   (function retargetLinks() {
     if (!APP_URL) return;
 
+    var DEMO_ORIGIN = (CONFIG.demoOrigin || '').replace(/\/+$/, '');
+
     $$('[data-cta]').forEach(function (link) {
-      var path = PATHS[link.getAttribute('data-cta')] || '/';
-      link.setAttribute('href', APP_URL + path);
+      var key = link.getAttribute('data-cta');
+      var path = PATHS[key] || '/';
+      var demoKeys = ['chat', 'checkPet', 'scanner', 'fitness', 'dailyWag', 'healthFile', 'medical', 'breedAlerts', 'alerts'];
+      var base = demoKeys.indexOf(key) !== -1 && DEMO_ORIGIN ? DEMO_ORIGIN : APP_URL;
+      link.setAttribute('href', base + path);
       // External destination — never leak the referrer's opener handle.
       link.setAttribute('rel', 'noopener');
     });
@@ -556,17 +561,6 @@
   }
 
   (function foodChecker() {
-    var form = $('[data-checker]');
-    var out = $('[data-checker-out]');
-    if (!form || !out) return;
-
-    var input = form.elements.food;
-
-    function render(html, levelClass) {
-      out.className = 'checker-out ' + (levelClass || '');
-      out.innerHTML = html;
-    }
-
     function escapeHtml(str) {
       return String(str).replace(/[&<>"']/g, function (ch) {
         return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch];
@@ -583,20 +577,20 @@
       return { html: html, css: meta.css };
     }
 
-    function check(raw) {
+    function check(raw, out) {
       var query = normalise(raw);
 
       if (!query) {
-        render('<p>Type a food to check — try chocolate, grapes, or carrot.</p>', 'level-unknown');
+        render(out, '<p>Type a food to check — try chocolate, grapes, or carrot.</p>', 'level-unknown');
         return;
       }
 
       var hits = findMatches(query);
       var top = hits[0];
 
-      // Nothing recognised. This must never read as reassurance.
       if (!top) {
         render(
+          out,
           '<strong>Not in this quick list</strong>' +
             '<span class="triage triage-monitor">Check before you feed it</span>' +
             '<p>This demo covers common foods only. Open Joey AI for the full checker, which reads the answer against your dog\'s breed, weight, allergies, and medications. If your dog has already eaten it, call your vet.</p>',
@@ -607,17 +601,15 @@
 
       var entry = top.entry;
 
-      // Anything unsafe wins outright, even when a safe ingredient also
-      // matched — "chicken with onion gravy" is an onion answer.
       if (entry.level !== 'safe') {
         var bad = verdict(entry.title, entry.level, entry.text, entry.watch);
-        render(bad.html, bad.css);
+        render(out, bad.html, bad.css);
         return;
       }
 
-      // Safe ingredient, but the query describes a prepared dish.
       if (hasUnaccountedWords(query, top.alias)) {
         render(
+          out,
           '<strong>Depends how it is prepared</strong>' +
             '<span class="triage triage-monitor">Check the recipe first</span>' +
             '<p>' + escapeHtml(entry.title) + ' on its own is generally fine, but a prepared dish usually is not. Onion, garlic, salt, sugar, chilli, and cooked bones are the usual problems, and any one of them changes the answer.</p>' +
@@ -628,19 +620,31 @@
       }
 
       var good = verdict(entry.title, 'safe', entry.text);
-      render(good.html, good.css);
+      render(out, good.html, good.css);
     }
 
-    form.addEventListener('submit', function (event) {
-      event.preventDefault();
-      check(input ? input.value : '');
-    });
+    function render(out, html, levelClass) {
+      out.className = 'checker-out ' + (levelClass || '');
+      out.innerHTML = html;
+    }
 
-    $$('[data-food-example]').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var value = btn.getAttribute('data-food-example');
-        if (input) input.value = value;
-        check(value);
+    $$('[data-checker]').forEach(function (form) {
+      var out = $('[data-checker-out]', form);
+      if (!out) return;
+
+      var input = form.elements.food;
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        check(input ? input.value : '', out);
+      });
+
+      $$('[data-food-example]', form).forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var value = btn.getAttribute('data-food-example');
+          if (input) input.value = value;
+          check(value, out);
+        });
       });
     });
   })();
